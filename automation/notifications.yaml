@@ -1,0 +1,9 @@
+- alias: 'A long running command completed'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: sensor.command_complete
+      to: 'ON'
+  condition:
+  action:
+    - service: script.command_complete

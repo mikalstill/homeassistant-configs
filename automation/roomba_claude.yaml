@@ -1,0 +1,80 @@
+- alias: 'Claude bin full'
+  hide_entity: true
+  trigger:
+    platform: template
+    value_template: "{%if is_state_attr('vacuum.claude_von_roomba', 'bin_full', true) %}true{%endif%}"
+  action:
+  - service: notify.slack
+    data:
+      message: 'Claude needs emptying.'
+
+- alias: 'Claude is stuck'
+  hide_entity: true
+  trigger:
+    - platform: template
+      value_template: "{%if is_state_attr('vacuum.claude_von_roomba', 'status', 'Stuck') %}true{%endif%}"
+  action:
+  - service: notify.slack
+    data:
+      message: 'Claude is stuck, send help!'
+
+- alias: 'Claude started'
+  hide_entity: true
+  trigger:
+    - platform: state
+      entity_id: vacuum.claude_von_roomba
+      from: 'off'
+      to: 'on'
+  action:
+    - service: notify.slack
+      data:
+        message: 'Claude has started cleaning.'
+    - service: event_history.record_event
+      data:
+        name: 'claude_ran'
+
+- alias: 'Start Claude when nobody is home'
+  trigger:
+    platform: state
+    entity_id: group.family
+    to: 'not_home'
+    for:
+      minutes: 5
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      after: '08:00:00'
+      before: '15:00:00'
+    - condition: template
+      value_template: '{{ states.vacuum.claude_von_roomba.attributes.battery_level | int > 80 }}'
+  action:
+  - service: vacuum.turn_on
+    data:
+      entity_id: vacuum.claude_von_roomba
+  - service: notify.slack
+    data:
+      message: 'Nobody is home, starting Claude'
+
+- alias: 'Start Claude if its been too long'
+  trigger:
+    platform: time
+    minutes: '/15'
+    seconds: 0
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      after: '11:00:00'
+      before: '17:00:00'
+    - condition: template
+      value_template: '{{ (as_timestamp(now()) - states.event_history.events.attributes.claude_ran | default(0) | int > 86400 )}}'
+    - condition: template
+      value_template: '{{ states.vacuum.claude_von_roomba.attributes.battery_level | int > 80 }}'
+  action:
+  - service: vacuum.turn_on
+    data:
+      entity_id: vacuum.claude_von_roomba
+  - service: notify.slack
+    data:
+      message: 'Its been ages since Claude has cleaned so running even with people home.'

@@ -1,0 +1,7 @@
+command_complete:
+  sequence:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.office_speaker
+        media_content_id: 'https://ha.stillhq.com/local/command_complete.mp3'
+        media_content_type: 'music'

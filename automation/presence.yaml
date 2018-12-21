@@ -1,0 +1,17 @@
+- alias: 'Nobody is home'
+  trigger:
+    platform: state
+    entity_id: group.family
+    to: 'not_home'
+    for:
+      minutes: 5
+  condition:
+    condition: and
+    conditions:      
+     - condition: time  
+       after: '09:00:00'
+       before: '21:00:00'
+  action:
+  - service: notify.slack
+    data:
+      message: 'I detected nobody is home.'

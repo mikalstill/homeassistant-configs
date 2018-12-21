@@ -1,0 +1,9 @@
+- id: Download BoM Canberra forecast
+  alias: Download BoM Canberra forecast
+  trigger:
+    platform: time
+    hours: 20
+    minutes: 12
+    seconds: 0
+  action:
+    service: shell_command.download_forecast

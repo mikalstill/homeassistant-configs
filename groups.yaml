@@ -1,0 +1,74 @@
+Michael:
+  # Fed by unifi
+  - device_tracker.michaels_phone
+  - device_tracker.michaels_atom
+  - device_tracker.michaels_running_keys
+
+  # Calculated summary fed via MQTT pretending to be owntracks
+  - device_tracker.michael_summary
+
+Family:
+  # Fed by unifi
+  - device_tracker.catherines_phone
+  - device_tracker.andrews_phone
+  - device_tracker.matthews_phone
+  - device_tracker.als_phone
+
+  # Calculated summary fed via MQTT pretending to be owntracks
+  - device_tracker.michael_summary
+
+# Views
+default_view:
+  name: Home
+  view: yes
+  entities:
+   - event_history.events
+   - group.all_lights
+   - group.all_switches
+   - group.all_vacuum_cleaners
+   - group.family
+   - group.michael
+
+automation_view:
+  name: Automation
+  view: yes
+  entities:
+    - group.all_automations
+    - group.all_scripts
+    - vacuum.claude_von_roomba
+
+sensor_view:
+  name: Sensors
+  view: yes
+  entities:
+   - sensor.coffee_maker
+   - sensor.doorbell
+   - sensor.lab_humidity
+   - sensor.lab_temperature
+   - sensor.office_humidity
+   - sensor.office_illuminance
+   - sensor.office_temperature
+   - sensor.outside_humidity
+   - sensor.outside_temperature
+
+media_view:
+  name: Media
+  view: yes
+  entities:
+   - media_player.ajs_bedroom_tv
+   - media_player.jacqui_speaker
+   - media_player.jacqui_tv
+   - media_player.kitchen_speaker
+   - media_player.kitchen_tv
+   - media_player.lounge_speaker
+   - media_player.lounge_tv
+   - media_player.master_tv
+   - media_player.office_speaker
+
+weather_view:
+  name: Weather
+  view: yes
+  entities:
+   - camera.weather_radar
+   - weather.bom_tuggeranong
+   

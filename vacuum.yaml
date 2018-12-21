@@ -1,0 +1,5 @@
+- platform: roomba
+  host: roomba.home.stillhq.com
+  name: Claude von Roomba
+  username: !secret roomba_username
+  password: !secret roomba_password

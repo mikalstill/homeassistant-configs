@@ -1,0 +1,25 @@
+doorbell:
+  sequence:
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.office_speaker
+        volume_level: 0.5
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.office_speaker
+        media_content_id: 'https://ha.stillhq.com/local/doorbell-chime.mp3'
+        media_content_type: 'music'
+
+    - service: media_player.volume_set
+      data:
+        entity_id: media_player.kitchen_speaker
+        volume_level: 0.5
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.kitchen_speaker
+        media_content_id: 'https://ha.stillhq.com/local/doorbell-chime.mp3'
+        media_content_type: 'music'
+
+    - service: notify.slack
+      data:
+        message: 'The doorbell just rang.'

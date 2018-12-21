@@ -1,0 +1,129 @@
+homeassistant:
+  name: 33FL
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 594
+  unit_system: metric
+  time_zone: Australia/Canberra
+  customize: !include customize.yaml
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password
+
+# Show links to resources in log and frontend
+introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Enable ffmpeg
+ffmpeg:
+
+http:
+  base_url: !secret base_url
+  api_password: !secret api_password
+
+logger:
+  default: info
+  logs:
+          roomba: warning
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+#map:
+
+# Enable sun tracking
+sun:
+
+# BOM weather forecasts
+weather:
+- platform: bom
+  station: IDN60903.94925
+
+shell_command:
+  download_forecast: curl -s --retry 3 --output /srv/homeassistant/downloads/forecast-canberra.xml ftp://ftp.bom.gov.au/anon/gen/fwo/IDN10035.xml
+
+# Text to speech
+tts:
+  - platform: google
+    cache: true
+    language: 'en-uk'
+    cache_dir: /tmp/tts
+
+# Cloud
+cloud:
+
+owntracks:
+
+mqtt:
+  broker: !secret mqtt_broker
+
+automation: !include_dir_merge_list automation
+camera: !include cameras.yaml
+device_tracker: !include device_tracker.yaml
+group: !include groups.yaml
+script: !include_dir_merge_named scripts
+sensor: !include_dir_merge_list sensors
+vacuum: !include vacuum.yaml
+
+vera:
+  vera_controller_url: !secret vera_controller
+
+media_player:
+  - platform: samsungtv
+    host: loungetv.home.stillhq.com
+    name: Lounge Display
+    mac: 5c:f6:dc:b1:a9:98
+
+  - platform: plex
+    entity_namespace: 'plex'
+    ip_address: 192.168.1.6
+    port: 32400
+    token: !secret plex_token
+    ssl: true
+    verify: false
+
+notify:
+  - name: slack
+    platform: slack
+    api_key: !secret slack_api_key
+    default_channel: '#house'
+
+switch:
+# Despite having these configured in DNS, I _must_ use the IP address in the
+# host field here for broadlink_send_packet in scripts to work correctly.
+  - platform: broadlink
+    host: 192.168.1.230
+    mac: '34:ea:34:41:43:32'
+    timeout: 15
+    switches:
+      office_tv:
+        friendly_name: 'Office TV Power'
+        command_on: 'JgDSAJOWEjgTNxM3ERMRFBETERMRFBE5ETgSOBITEBQSExETERMSOBITEBQRORI4ERMSExA5EhMRORE4EhMRExI4EzcSEhEABgWTlhI4EzcSOBETERQQFBISEhMRORE4EjgSExETERQRExEUETgSExETETkSOBISERQQORMSEjgROBITERMSOBI4ExESAAYElpMSOBI4EjgRExEUERMRFBETETkTNxE4EhMRExEUEBQRFBA5EhMRExE5EjgTEREUETgUERE5EzYSExETEjgSOBISEgANBQAAAAAAAA=='
+        command_off: 'JgDSAJOWETgTNxM3ExERFBETERQQFBE5EzcROBMSERMRFBETERQQFBEUERMRORI4ERMRFBE4EzcSOBM3ExESExA5EzcTEhAABgaVlBI3EzcTNxMRERQRExEUEBQRORI4EzYUERETERQRExEUERMRFBAUETkSOBMRERQQORM3EjgSOBMRERQQORI4ExIQAAYGlZQROBI4EzcSEhITERMRFBETETkSOBE5EhIRFBAUERMRFBETERQRExE5EzcTEREUEDkSOBM3EjgRExEUEDkSOBMSEAANBQAAAAAAAA=='
+
+# My custom components
+event_history:

@@ -1,0 +1,77 @@
+lab_aircon_high:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBQAAABKZQUERMTExITExI4ExITExITEzcTNxM4EhMTEhM4EjgTNxMSEzgSOBMSEzcTExITExMSOBITExITOBITEzcTNxM4EgAFQwABJ0sSAA0FAAAAAAAAAAA='
+
+lab_aircon_low:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBQAAABKZMUEhQRFBITEhQ2FBITEhQRFDcTNxQ2FBEUEhQ2FDYUNhQSFDYUNhQ2FBIUERQSExIUNhQSExIUERQ2FDcTNxQ2FAAFQgABKEoTAA0FAAAAAAAAAAA='
+
+lab_aircon_sleep:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBQAAABKpMUEhMSFBEUEhQ2FBEUEhMSFDYUNhQ3ExIUERQ2FDcUNhQRFDcTEhQ2FBITEhQRFBIUNhQRFDYUEhQ2FDYUNhQ3FAAFQQABKkkTAA0FAAAAAAAAAAA='
+
+lab_aircon_temp_up:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBQAAABJ5USFBEUEhQRFBI4EhQRFBITEjkRORI4ExISFBI4EjgTNxI5EhMTNxMTEjgSExMTERQTEhM3ExMTNxMTEjgSOBM3EwAFQgABKkkTAA0FAAAAAAAAAAA='
+
+lab_aircon_temp_down:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBQAAABKJUSFBEUEhMSFBE5EhMSFBEUEjgSOBI5ERQSExI5ETkRORI4EhQRORE5EhMSFBEUEhQRFBI4EhMSFBI4EjgSOBI5EQAFRAABKUkTAA0FAAAAAAAAAAA='
+
+lab_aircon_cool:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBQAAABJ5USFBEUEhMSFBE5EhMSFBEUEjgSORE5ERQSFBE5ETkSOBIUERQSOBIUETkRFBIUERQSOBI4EhQRORITEjgSORE5EQAFRAABKEsRAA0FAAAAAAAAAAA='
+
+lab_aircon_dry:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBQAAABKZIVEhMTEhMTEhM4EhMTEhMTEjgTNxM3ExMSExM3EzcTOBITExMSOBI4ExITExITExITOBI4ExITExI4EjgTNxM3EgAFRAABJ0sSAA0FAAAAAAAAAAA='
+
+lab_aircon_fan:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBYAAABKZMUEhQRFBEUEhQ2FBEUEhMSFDYUNhQ3ExIUEhM3EzcUNhQSExIUNhQSExIUERQSExIUNhQ2FBIUNhQ2FDYUNxQ2FAAFQQABKkkTAAxhAAEqSBQADQU='
+
+lab_aircon_unit_toggle:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBQAAABKJQUEhMSFBEUEhQ2FBEUEhQRFDYUNxM3FBEUEhM3FDYUNhQSFBEUNhQSFBEUERQSFBEUNhQ3FBEUNhQ2FDcUNhQ2FAAFQgABKUkUAA0FAAAAAAAAAAA='
+
+lab_aircon_power_toggle:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBYAAABKZQTEhMTEhMTEhM4EhMTEhMTEzcTNxM3ExMTEhM3EzgSOBITEhQRFBIUERQSExIUERQSOBI5EjgTNxI4EzcSORE5EgAFRAABKUkUAAxhAAEpSRQADQU='
+
+lab_aircon_timer:
+  sequence:
+    - service: switch.broadlink_send_packet_192_168_1_231
+      data:
+        packet:
+          - 'JgBQAAABKpMTEhQRFBIUERQ2FBIUERQSEzcUNhQ2FBITEhQ2FDYUNxM3FBEUEhMSFBEUEhQRFBITEhQ2FDYUNxM3FDYTNxM4EgAFQwABKUkTAA0FAAAAAAAAAAA='
+

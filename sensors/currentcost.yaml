@@ -1,0 +1,3 @@
+  - platform: mqtt
+    name: "Coffee maker"
+    state_topic: "currentcost/coffee_maker/STATE"
