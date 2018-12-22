@@ -1,0 +1,8 @@
+*.db
+*.log
+*~
+__pycache__
+deps
+event_history.json
+known_devices.yaml
+secrets.yaml
