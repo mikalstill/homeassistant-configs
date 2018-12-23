@@ -63,9 +63,6 @@ weather:
 - platform: bom
   station: IDN60903.94925
 
-shell_command:
-  download_forecast: curl -s --retry 3 --output /srv/homeassistant/downloads/forecast-canberra.xml ftp://ftp.bom.gov.au/anon/gen/fwo/IDN10035.xml
-
 # Text to speech
 tts:
   - platform: google
@@ -127,3 +124,4 @@ switch:
 
 # My custom components
 event_history:
+bom_forecast:

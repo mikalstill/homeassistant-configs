@@ -1,9 +1,19 @@
-- id: Download BoM Canberra forecast
-  alias: Download BoM Canberra forecast
+- alias: Download BoM Canberra forecast each evening
   trigger:
     platform: time
     hours: 20
     minutes: 12
     seconds: 0
   action:
-    service: shell_command.download_forecast
+    service: bom_forecast.fetch
+    data:
+      forecast: 'IDN10035'
+
+- alias: Download BoM Canberra forecast on startup
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: bom_forecast.fetch
+    data:
+      forecast: 'IDN10035'
