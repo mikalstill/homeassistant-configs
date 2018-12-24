@@ -1,0 +1,22 @@
+_office_chromecast_on:
+  sequence:
+    - service: script.office_tv_power_on
+    - delay: '00:00:15'
+    - service: script.office_tv_input_hdmi1
+
+_office_chromecast_off:
+  sequence:
+    - service: script.office_tv_power_off
+
+_office_bluray_on:
+  sequence:
+    - service: script.office_tv_power_on
+    - service: script.office_bluray_power_toggle
+    - delay: '00:00:15'
+    - service: script.office_tv_input_hdmi2
+
+_office_bluray_off:
+  sequence:
+    - service: script.office_tv_power_off
+    - service: script.office_bluray_power_toggle
+
