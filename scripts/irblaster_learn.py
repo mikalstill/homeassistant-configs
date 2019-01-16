@@ -5,7 +5,8 @@
 #
 # Run something like this:
 #
-# >> ./irblaster_learn.py "0x2737 192.168.1.230 32434134ea34"
+# >> workon broadlink
+# >> python ./irblaster_learn.py "0x2737 192.168.1.230 32434134ea34"
 
 import base64
 import broadlink
@@ -30,7 +31,7 @@ with open('%s.codes' % target, 'w+') as f:
         button = raw_input('What button? ')
         dev.enter_learning()
         data = None
-        print 'Learning...'
+        print('Learning...')
         timeout = 30
         while (data is None) and (timeout > 0):
             time.sleep(2)
@@ -38,10 +39,10 @@ with open('%s.codes' % target, 'w+') as f:
             data = dev.check_data()
         if data:
             learned = ''.join(format(x, '02x') for x in bytearray(data))
-            print 'Learned: %s' % learned
+            print('Learned: %s' % learned)
             encoded = base64.b64encode(data).replace('\n', '')
-            print 'Encoded: %s' % encoded
+            print('Encoded: %s' % encoded)
 
             f.write('%s %s\n' %(button, encoded))
         else:
-            print 'No data received...'
+            print('No data received...')
