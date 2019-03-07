@@ -82,6 +82,7 @@ automation: !include_dir_merge_list automation
 camera: !include cameras.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
+light: !include light.yaml
 script: !include_dir_merge_named scripts
 sensor: !include_dir_merge_list sensors
 vacuum: !include vacuum.yaml

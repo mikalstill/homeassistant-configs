@@ -1,0 +1,53 @@
+# Dimmable Mirabella Genio running Tasmota
+# Remember to run "SetOption59 1" on the web console before deployment!
+# See https://github.com/arendst/Sonoff-Tasmota/wiki/Home-Assistant-%E2%80%90-Manual-Config#dimmer--pwm-led for details.
+- platform: mqtt
+  name: "Office Desk"
+  command_topic: "cmnd/sonoff5/POWER"
+  state_topic: "tele/sonoff5/STATE"
+  state_value_template: "{{value_json.POWER}}"
+  availability_topic: "tele/sonoff5/LWT"
+  brightness_command_topic: "cmnd/sonoff5/Dimmer"
+  brightness_state_topic: "tele/sonoff5/STATE"
+  brightness_scale: 100
+  on_command_type: "brightness"
+  brightness_value_template: "{{value_json.Dimmer}}"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  retain: false
+
+# RGB Mirabella Genio running Tasmota
+# Remember to run "SetOption17 1" and "SetOption59 1" on the web console before deployment!
+# See https://github.com/arendst/Sonoff-Tasmota/wiki/Home-Assistant-%E2%80%90-Manual-Config#rgb-lights for details.
+- platform: mqtt
+  name: "Office Couch Left"
+  command_topic: "cmnd/sonoff6/POWER"
+  state_topic: "tele/sonoff6/STATE"
+  state_value_template: "{{value_json.POWER}}"
+  availability_topic: "tele/sonoff6/LWT"
+  brightness_command_topic: "cmnd/sonoff6/Dimmer"
+  brightness_state_topic: "tele/sonoff6/STATE"
+  brightness_scale: 100
+  on_command_type: "brightness"
+  brightness_value_template: "{{value_json.Dimmer}}"
+  rgb_command_topic: "cmnd/sonoff6/Color2"
+  rgb_state_topic: "tele/sonoff6/STATE"
+  rgb_value_template: "{{value_json.Color.split(',')[0:3]|join(',')}}"
+  effect_command_topic: "cmnd/sonoff6/Scheme"
+  effect_state_topic: "tele/sonoff6/STATE"
+  effect_value_template: "{{value_json.Scheme}}"
+  effect_list:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  retain: false
