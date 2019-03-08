@@ -51,3 +51,34 @@
   payload_not_available: "Offline"
   qos: 1
   retain: false
+
+- platform: mqtt
+  name: "Office Couch Right"
+  command_topic: "cmnd/sonoff7/POWER"
+  state_topic: "tele/sonoff7/STATE"
+  state_value_template: "{{value_json.POWER}}"
+  availability_topic: "tele/sonoff7/LWT"
+  brightness_command_topic: "cmnd/sonoff7/Dimmer"
+  brightness_state_topic: "tele/sonoff7/STATE"
+  brightness_scale: 100
+  on_command_type: "brightness"
+  brightness_value_template: "{{value_json.Dimmer}}"
+  rgb_command_topic: "cmnd/sonoff7/Color2"
+  rgb_state_topic: "tele/sonoff7/STATE"
+  rgb_value_template: "{{value_json.Color.split(',')[0:3]|join(',')}}"
+  effect_command_topic: "cmnd/sonoff7/Scheme"
+  effect_state_topic: "tele/sonoff7/STATE"
+  effect_value_template: "{{value_json.Scheme}}"
+  effect_list:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  retain: false
+ 
