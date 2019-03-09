@@ -24,11 +24,10 @@
       data:
         name: 'good_morning'
     - service: light.turn_on
-      entity_id: light.office_lights_4
+      entity_id: light.office_desk
     - service: vacuum.turn_on
       data:
         entity_id: vacuum.claude_von_roomba
-    - service: script.office_aircon_power_on_fan
     - service: notify.slack
       data:
         message: 'I have turned on the lights in the office and set the AC to just fan. You are welcome.'
@@ -38,6 +37,8 @@
 #  trigger:
 #    
 #  action:
-#    - service: light.turn_ff
+#    - service: light.turn_off
+#      entity_id: light.office_desk
+#    - service: light.turn_off
 #      entity_id: light.office_lights_4
 #    - service: script.office_aircon_power_off
