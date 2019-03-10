@@ -2,7 +2,6 @@ Michael:
   # Fed by unifi
   - device_tracker.michaels_phone
   - device_tracker.michaels_atom
-  - device_tracker.michaels_running_keys
 
   # Calculated summary fed via MQTT pretending to be owntracks
   - device_tracker.michael_summary
