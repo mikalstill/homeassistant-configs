@@ -1,0 +1,12 @@
+title: 33FL
+views:
+  - title: Office
+    cards:
+    - type: entity-button
+      entity: script._office_chromecast_on
+      icon: 'mdi:television'
+      tap_action:
+        action: call-service
+        service: script.turn_on
+        service_data:
+          entity_id: script._office_chromecast_on

@@ -1,0 +1,31 @@
+# Despite having these configured in DNS, I _must_ use the IP address in the
+# host field here for broadlink_send_packet in scripts to work correctly.
+- platform: broadlink
+  host: 192.168.1.230
+  mac: '34:ea:34:41:43:32'
+  timeout: 15
+  switches:
+    office_tv:
+      friendly_name: 'Office TV Power'
+      command_on: 'JgDSAJOWEjgTNxM3ERMRFBETERMRFBE5ETgSOBITEBQSExETERMSOBITEBQRORI4ERMSExA5EhMRORE4EhMRExI4EzcSEhEABgWTlhI4EzcSOBETERQQFBISEhMRORE4EjgSExETERQRExEUETgSExETETkSOBISERQQORMSEjgROBITERMSOBI4ExESAAYElpMSOBI4EjgRExEUERMRFBETETkTNxE4EhMRExEUEBQRFBA5EhMRExE5EjgTEREUETgUERE5EzYSExETEjgSOBISEgANBQAAAAAAAA=='
+      command_off: 'JgDSAJOWETgTNxM3ExERFBETERQQFBE5EzcROBMSERMRFBETERQQFBEUERMRORI4ERMRFBE4EzcSOBM3ExESExA5EzcTEhAABgaVlBI3EzcTNxMRERQRExEUEBQRORI4EzYUERETERQRExEUERMRFBAUETkSOBMRERQQORM3EjgSOBMRERQQORI4ExIQAAYGlZQROBI4EzcSEhITERMRFBETETkSOBE5EhIRFBAUERMRFBETERQRExE5EzcTEREUEDkSOBM3EjgRExEUEDkSOBMSEAANBQAAAAAAAA=='
+
+- platform: template
+  switches:
+    office_chromecast:
+      friendly_name: 'Office Chromecast'
+      value_template: "{{ is_state('device_tracker.office_chromecast', 'home') }}"
+      turn_on:
+        service: script._office_chromecast_on
+        data:
+          entity_id: script._office_chromecast_on
+      turn_off:
+        service: script._office_chromecast_off
+        data:
+          entity_id: script._office_chromecast_off
+      icon_template: >-
+        {% if is_state('device_tracker.office_chromecast', 'home') %}
+          mdi:television
+        {% else %}
+          mdi:television-off
+        {% endif %}

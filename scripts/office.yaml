@@ -1,12 +1,20 @@
 _office_chromecast_on:
   sequence:
     - service: script.office_tv_power_on
+    - service: device_tracker.see
+      data:
+        dev_id: office_chromecast
+        location_name: 'home'
     - delay: '00:00:15'
     - service: script.office_tv_input_hdmi1
 
 _office_chromecast_off:
   sequence:
     - service: script.office_tv_power_off
+    - service: device_tracker.see
+      data:
+        dev_id: office_chromecast
+        location_name: 'not_home'
 
 _office_bluray_on:
   sequence:

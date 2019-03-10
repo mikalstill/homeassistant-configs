@@ -85,6 +85,7 @@ group: !include groups.yaml
 light: !include light.yaml
 script: !include_dir_merge_named scripts
 sensor: !include_dir_merge_list sensors
+switch: !include_dir_merge_list switches
 vacuum: !include vacuum.yaml
 
 vera:
@@ -109,19 +110,6 @@ notify:
     platform: slack
     api_key: !secret slack_api_key
     default_channel: '#house'
-
-switch:
-# Despite having these configured in DNS, I _must_ use the IP address in the
-# host field here for broadlink_send_packet in scripts to work correctly.
-  - platform: broadlink
-    host: 192.168.1.230
-    mac: '34:ea:34:41:43:32'
-    timeout: 15
-    switches:
-      office_tv:
-        friendly_name: 'Office TV Power'
-        command_on: 'JgDSAJOWEjgTNxM3ERMRFBETERMRFBE5ETgSOBITEBQSExETERMSOBITEBQRORI4ERMSExA5EhMRORE4EhMRExI4EzcSEhEABgWTlhI4EzcSOBETERQQFBISEhMRORE4EjgSExETERQRExEUETgSExETETkSOBISERQQORMSEjgROBITERMSOBI4ExESAAYElpMSOBI4EjgRExEUERMRFBETETkTNxE4EhMRExEUEBQRFBA5EhMRExE5EjgTEREUETgUERE5EzYSExETEjgSOBISEgANBQAAAAAAAA=='
-        command_off: 'JgDSAJOWETgTNxM3ExERFBETERQQFBE5EzcROBMSERMRFBETERQQFBEUERMRORI4ERMRFBE4EzcSOBM3ExESExA5EzcTEhAABgaVlBI3EzcTNxMRERQRExEUEBQRORI4EzYUERETERQRExEUERMRFBAUETkSOBMRERQQORM3EjgSOBMRERQQORI4ExIQAAYGlZQROBI4EzcSEhITERMRFBETETkSOBE5EhIRFBAUERMRFBETERQRExE5EzcTEREUEDkSOBM3EjgRExEUEDkSOBMSEAANBQAAAAAAAA=='
 
 # My custom components
 event_history:

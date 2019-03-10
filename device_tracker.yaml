@@ -11,3 +11,7 @@
       hide_if_away: false
     ssid_filter:
       - !secret unifi_ssid
+
+  - platform: ping
+    hosts:
+      office_chromecast: 192.168.1.180
