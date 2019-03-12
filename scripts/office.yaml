@@ -20,6 +20,10 @@ _office_bluray_on:
   sequence:
     - service: script.office_tv_power_on
     - service: script.office_bluray_power_toggle
+    - service: device_tracker.see
+      data:
+        dev_id: office_bluray
+        location_name: 'home'
     - delay: '00:00:15'
     - service: script.office_tv_input_hdmi2
 
@@ -27,4 +31,7 @@ _office_bluray_off:
   sequence:
     - service: script.office_tv_power_off
     - service: script.office_bluray_power_toggle
-
+    - service: device_tracker.see
+      data:
+        dev_id: office_bluray
+        location_name: 'not_home'

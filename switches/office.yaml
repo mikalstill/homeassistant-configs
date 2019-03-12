@@ -29,3 +29,20 @@
         {% else %}
           mdi:television-off
         {% endif %}
+    office_bluray:
+      friendly_name: 'Office Bluray'
+      value_template: "{{ is_state('device_tracker.office_bluray', 'home') }}"
+      turn_on:
+        service: script._office_bluray_on
+        data:
+          entity_id: script._office_bluray_on
+      turn_off:
+        service: script._office_bluray_off
+        data:
+          entity_id: script._office_bluray_off
+      icon_template: >-
+        {% if is_state('device_tracker.office_bluray', 'home') %}
+          mdi:television
+        {% else %}
+          mdi:television-off
+        {% endif %}

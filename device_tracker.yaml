@@ -15,3 +15,4 @@
   - platform: ping
     hosts:
       office_chromecast: 192.168.1.180
+      office_bluray: 192.168.1.181
