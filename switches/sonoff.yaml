@@ -1,0 +1,4 @@
+# Brilliant Wifi Smart PLug running Tasmota. Controls the office water cooler.
+- platform: mqtt
+  name: "Office water cooler"
+  command_topic: "cmnd/sonoff8/POWER1"
