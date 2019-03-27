@@ -39,3 +39,61 @@
 #    - service: light.turn_off
 #      entity_id: light.office_lights_4
 #    - service: script.office_aircon_power_off
+
+# Attempt to manage the light levels in the office, but only during reasonable
+# hours, if I am home, and if the desk lamp is on. The desk lamp is the bat
+# signal for the office currently being occupied.
+- alias: 'Office too dark while working'
+  hide_entity: false
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.office_illuminance
+      below: 200
+      for:
+        minutes: 5
+  condition:
+    condition: and
+    conditions:
+    - condition: time
+      after: '04:00:00'
+      before: '22:00:00'
+    - condition: state
+      entity_id: device_tracker.michael_summary
+      state: 'home'
+    - condition: state
+      entity_id: light.office_desk
+      state: 'on'
+    - condition: state
+      entity_id: light.office_couch_left
+      state: 'off'
+  action:
+    - service: light.turn_on
+      entity_id: light.office_couch_left
+      data:
+        brightness: 255
+        rgb_color: [255, 126, 0]
+    - service: light.turn_on
+      entity_id: light.office_couch_right
+      data:
+        brightness: 255
+        rgb_color: [255, 126, 0]
+
+- alias: 'Office too bright'
+  hide_entity: false
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.office_illuminance
+      above: 300
+      for:
+        minutes: 5
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: light.office_couch_left
+      state: 'on'
+  action:
+    - service: light.turn_off
+      entity_id: light.office_couch_left
+    - service: light.turn_off
+      entity_id: light.office_couch_right
