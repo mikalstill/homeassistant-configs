@@ -31,19 +31,25 @@
     - service: switch.turn_on
       entity_id: switch.office_water_cooler
 
-#- alias: 'Office power down'
-#  hide_entity: false
-#  trigger:
-#    
-#  action:
-#    - service: light.turn_off
-#      entity_id: light.office_desk
-#    - service: light.turn_off
-#      entity_id: light.office_lights_4
-#    - service: script.office_aircon_power_off
-#
-#    - service: switch.turn_on
-#      entity_id: switch.office_water_cooler
+- alias: 'Office power down'
+  hide_entity: false
+  trigger:
+    platform: event
+    event_type: ifttt_webhook_received
+    event_data:
+      action: office_shutdown
+  action:
+    - service: light.turn_off
+      entity_id: light.office_desk
+    - service: light.turn_off
+      entity_id: light.office_couch_left
+    - service: light.turn_off
+      entity_id: light.office_couch_right
+    - service: light.turn_off
+      entity_id: light.office_lights_4
+    - service: script.office_aircon_power_off
+    - service: switch.turn_on
+      entity_id: switch.office_water_cooler
 
 # Attempt to manage the light levels in the office, but only during reasonable
 # hours, if I am home, and if the desk lamp is on. The desk lamp is the bat
