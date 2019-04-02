@@ -13,4 +13,33 @@
       entity_id: light.master_bed_catherine
       data:
         brightness: 15
-        rgb_color: [255, 135, 135
+        rgb_color: [255, 135, 135]
+
+- alias: 'Gentle wake up on weekday mornings'
+  hide_entity: false
+  trigger:
+    - platform: time
+      at: '07:15:00'
+  condition:
+    - condition: and
+      conditions:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: light.turn_on
+      entity_id: light.master_bed_michael
+      data:
+        brightness: 255
+        rgb_color: [255, 108, 145]
+        transition: 300
+    - service: light.turn_on
+      entity_id: light.master_bed_catherine
+      data:
+        brightness: 255
+        rgb_color: [255, 108, 145]
+        transition: 300
