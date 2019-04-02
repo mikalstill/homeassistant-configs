@@ -1,0 +1,16 @@
+- alias: 'Turn on bedside lamps in the evening'
+  hide_entity: false
+  trigger:
+    - platform: sun
+      event: sunset
+  action:
+    - service: light.turn_on
+      entity_id: light.master_bed_michael
+      data:
+        brightness: 15
+        rgb_color: [255, 135, 135]
+    - service: light.turn_on
+      entity_id: light.master_bed_catherine
+      data:
+        brightness: 15
+        rgb_color: [255, 135, 135
