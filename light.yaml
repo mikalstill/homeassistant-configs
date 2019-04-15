@@ -141,3 +141,18 @@
   payload_not_available: "Offline"
   qos: 1
   retain: false
+
+# Groups of lights
+- platform: group
+  name: Office
+  entities:
+    - light.office_desk
+    - light.office_couch_left
+    - light.office_couch_right
+    - light.office_lights_4
+
+- platform: group
+  name: Master Bedroom
+  entities:
+    - light.master_bed_catherine
+    - light.master_bed_michael
