@@ -7,11 +7,8 @@
   condition:
     condition: and
     conditions:
-    - condition: state
-      entity_id: group.family
-      state: 'home'
     - condition: template
-      value_template: '{{ states.bom_forecast.forecast.attributes.today_temp_max < 20 }}'
+      value_template: '{{ states.bom_forecast.forecast.attributes.today_temp_max < 22 }}'
   action:
     - service: switch.turn_on
       entity_id: switch.ensuite_towel_rail
