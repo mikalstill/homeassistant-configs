@@ -1,0 +1,4 @@
+- platform: mqtt
+  name: "Yurt1 temperature"
+  state_topic: "tele/yurt1/SENSOR"
+  unit_of_measurement: "°C"

@@ -1,0 +1,21 @@
+--- # Use a modern pip
+  - name: install python-setuptools
+    apt:
+      name: python-setuptools
+      state: latest
+
+  - name: test if we have any pip
+    shell: pip help
+    ignore_errors: True
+    register: has_pip
+  - name: install python-pip
+    apt:
+      name: python-pip
+      state: latest
+    when: has_pip is failed
+  - name: pip self-upgrade
+    command: pip install -U pip
+  - name: remove python-pip
+    apt:
+      name: python-pip
+      state: absent
