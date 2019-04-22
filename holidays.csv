@@ -1,0 +1,36 @@
+# Holidays. Format is: <start>,<end>,<comment>. You can have just a start and no end for a single day holiday.
+Start,End,Comment
+20190101,,New year's day
+20190128,,Australia day
+20190311,,Canberra day
+20190419,,Good Friday
+20190420,,Easter Saturday
+20190421,,Easter Sunday
+20190422,,Easter Monday
+20190425,,ANZAC day
+20190527,,Reconciliation day
+20190610,,Queen's Birthday
+20191007,,Labour day
+20191225,,Christmas day
+20191226,,Boxing day
+
+20200101,,New year's day
+20200127,,Australia day
+20200309,,Canberra day
+20200410,,Good Friday
+20200411,,Easter Saturday
+20200412,,Easter Sunday
+20200413,,Easter Monday
+20200425,,ANZAC day
+20200601,,Reconciliation day
+20200608,,Queen's Birthday
+20201005,,Labour day
+20201225,,Christmas day
+20201226,,Boxing day
+20201228,,Boxing day Monday
+
+20190101,20190204,School holidays
+20190413,20190428,School holidays
+20190706,20190721,School holidays
+20190928,20191013,School holidays
+20191220,20191231,School holidays

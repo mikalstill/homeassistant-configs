@@ -24,7 +24,7 @@
         brightness: 15
         rgb_color: [255, 135, 135]
 
-- alias: 'Gentle wake up on weekday mornings'
+- alias: 'Gentle wake up on weekday mornings, but not on holidays'
   hide_entity: false
   trigger:
     - platform: time
@@ -45,6 +45,8 @@
       - condition: state
         entity_id: light.master_bed_catherine
         state: 'off'
+      - condition: template
+        value_template: '{{ states.holidays.holiday.today == "" }}'
   action:
     - service: light.turn_on
       entity_id: light.master_bed_michael
@@ -56,3 +58,6 @@
       data:
         brightness: 15
         rgb_color: [255, 108, 145]
+    - service: notify.slack
+      data_template:
+        message: 'Good morning! Today is forecast to be "{{states.bom_forecast.forecast.attributes.today_forecast}}", with a maximum of {{states.bom_forecast.forecast.attributes.today_temp_max}} and {{states.bom_forecast.forecast.attributes.today_rain}} chance of rain.'

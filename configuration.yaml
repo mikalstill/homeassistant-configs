@@ -10,9 +10,6 @@ homeassistant:
     - type: homeassistant
     - type: legacy_api_password
 
-# Show links to resources in log and frontend
-introduction:
-
 # Enables the frontend
 frontend:
 
@@ -111,6 +108,11 @@ notify:
     api_key: !secret slack_api_key
     default_channel: '#house'
 
+recorder:
+  purge_interval: 1
+  purge_keep_days: 7
+
 # My custom components
-event_history:
 bom_forecast:
+event_history:
+holidays:
