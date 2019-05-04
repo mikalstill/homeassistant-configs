@@ -1,0 +1,36 @@
+#!/usr/bin/python
+
+import socket
+import sys
+
+COMMANDS = {
+    'software_version': 'Z',
+    'relay_states': '[',
+    'dc_input_voltage': ']',
+    'temperature_as_raw': 'a',
+    'temperature_as_string': 'b',
+    'relay_all_on': 'd',
+    'relay_1_on': 'e',
+    'relay_2_on': 'f',
+    'relay_3_on': 'g',
+    'relay_4_on': 'h',
+    'relay_all_off': 'n',
+    'relay_1_off': 'o',
+    'relay_2_off': 'p',
+    'relay_3_off': 'q',
+    'relay_4_off': 'r'
+}
+
+
+def sendcommand(hostname, command):
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((hostname, 2000))
+    s.settimeout(1)
+    s.send('%s\n' % command)
+
+
+hostname = sys.argv[1]
+relay = sys.argv[2]
+command = sys.argv[3]
+
+sendcommand(hostname, COMMANDS['relay_%s_%s' %(relay, command)])

@@ -1,27 +1,16 @@
-# Yurt wifi relay board controlling watering near the fern garden
-- platform: mqtt
-  name: "Watering for ferns"
-  command_topic: "cmnd/yurt1/POWER1"
-  state_topic: "tele/yurt1/POWER1"
-  state_on: "True"
-  state_off: "False"
-  payload_on: "True"
-  payload_off: "False"
+- platform: command_line
+  switches:
+    watering_for_yurt:
+      friendly_name: Watering for yurt
+      command_on: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 1 on
+      command_off: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 1 off
   
-- platform: mqtt
-  name: "Watering for yurt"
-  command_topic: "cmnd/yurt1/POWER2"
-  state_topic: "tele/yurt1/POWER2"
-  state_on: "True"
-  state_off: "False"
-  payload_on: "True"
-  payload_off: "False"
+    watering_for_fern:
+      friendly_name: Watering for fern
+      command_on: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 2 on
+      command_off: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 2 off
   
-- platform: mqtt
-  name: "Watering for veges"
-  command_topic: "cmnd/yurt1/POWER3"
-  state_topic: "tele/yurt1/POWER3"
-  state_on: "True"
-  state_off: "False"
-  payload_on: "True"
-  payload_off: "False"
+    watering_for_fern_pots:
+      friendly_name: Watering for shade garden
+      command_on: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 3 on
+      command_off: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 3 off
