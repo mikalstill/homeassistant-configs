@@ -10,7 +10,7 @@
       command_on: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 2 on
       command_off: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 2 off
   
-    watering_for_fern_pots:
+    watering_for_shade_garden:
       friendly_name: Watering for shade garden
       command_on: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 3 on
       command_off: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 3 off
