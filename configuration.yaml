@@ -74,6 +74,8 @@ owntracks:
 
 mqtt:
   broker: !secret mqtt_broker
+  discovery: true
+  discovery_prefix: homeassistant
 
 automation: !include_dir_merge_list automation
 camera: !include cameras.yaml
