@@ -1,0 +1,14 @@
+- alias: 'Water the shade garden'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '12:00:00'
+  condition:
+  - condition: time
+    weekday:
+      - sun
+      - wed
+  action:
+    - service: script.turn_on
+      entity_id: script._shade_garden_watering
+

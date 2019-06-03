@@ -28,8 +28,6 @@
     - service: vacuum.turn_on
       data:
         entity_id: vacuum.claude_von_roomba
-    - service: switch.turn_on
-      entity_id: switch.office_water_cooler
 
 - alias: 'Office power down'
   hide_entity: false
@@ -49,7 +47,7 @@
       entity_id: light.office_lights_4
     - service: script.office_aircon_power_off
     - service: switch.turn_off
-      entity_id: switch.office_water_cooler
+      entity_id: switch.office_workbench
 
 # Attempt to manage the light levels in the office, but only during reasonable
 # hours, if I am home, and if the desk lamp is on. The desk lamp is the bat
