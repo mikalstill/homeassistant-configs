@@ -3,7 +3,6 @@
     username: admin
     password: !secret unifi_password
     verify_ssl: false
-    interval: 60
     consider_home: 180
     detection_time: 180
     new_device_defaults:
