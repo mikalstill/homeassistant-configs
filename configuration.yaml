@@ -9,6 +9,7 @@ homeassistant:
   auth_providers:
     - type: homeassistant
     - type: legacy_api_password
+      api_password: !secret api_password
 
 # Enables the frontend
 frontend:
@@ -21,7 +22,6 @@ ffmpeg:
 
 http:
   base_url: !secret base_url
-  api_password: !secret api_password
 
 logger:
   default: info
