@@ -1,9 +1,7 @@
 - alias: Download BoM Canberra forecast each evening
   trigger:
     platform: time
-    hours: 20
-    minutes: 12
-    seconds: 0
+    at: '20:12:00'
   action:
     service: bom_forecast.fetch
     data:

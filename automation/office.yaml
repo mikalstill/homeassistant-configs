@@ -58,8 +58,7 @@
     - platform: numeric_state
       entity_id: sensor.office_illuminance
       below: 200
-      for:
-        minutes: 5
+      for: '00:05:00'
   condition:
     condition: and
     conditions:
@@ -93,8 +92,7 @@
     - platform: numeric_state
       entity_id: sensor.office_illuminance
       above: 300
-      for:
-        minutes: 5
+      for: '00:05:00'
   condition:
     condition: and
     conditions:
