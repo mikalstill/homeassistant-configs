@@ -16,13 +16,13 @@
       friendly_name: 'Office Chromecast'
       value_template: "{{ is_state('device_tracker.office_chromecast', 'home') }}"
       turn_on:
-        service: script._office_chromecast_on
+        service: script.office_chromecast_on
         data:
-          entity_id: script._office_chromecast_on
+          entity_id: script.office_chromecast_on
       turn_off:
-        service: script._office_chromecast_off
+        service: script.office_chromecast_off
         data:
-          entity_id: script._office_chromecast_off
+          entity_id: script.office_chromecast_off
       icon_template: >-
         {% if is_state('device_tracker.office_chromecast', 'home') %}
           mdi:television
@@ -33,13 +33,13 @@
       friendly_name: 'Office Bluray'
       value_template: "{{ is_state('device_tracker.office_bluray', 'home') }}"
       turn_on:
-        service: script._office_bluray_on
+        service: script.office_bluray_on
         data:
-          entity_id: script._office_bluray_on
+          entity_id: script.office_bluray_on
       turn_off:
-        service: script._office_bluray_off
+        service: script.office_bluray_off
         data:
-          entity_id: script._office_bluray_off
+          entity_id: script.office_bluray_off
       icon_template: >-
         {% if is_state('device_tracker.office_bluray', 'home') %}
           mdi:television

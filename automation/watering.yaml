@@ -10,5 +10,5 @@
       - wed
   action:
     - service: script.turn_on
-      entity_id: script._shade_garden_watering
+      entity_id: script.shade_garden_watering
 

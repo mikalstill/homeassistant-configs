@@ -3,18 +3,18 @@ views:
   - title: Office
     cards:
     - type: entity-button
-      entity: script._office_chromecast_on
+      entity: script.office_chromecast_on
       icon: 'mdi:television'
       tap_action:
         action: call-service
         service: script.turn_on
         service_data:
-          entity_id: script._office_chromecast_on
+          entity_id: script.office_chromecast_on
     - type: entity-button
-      entity: script._office_bluray_on
+      entity: script.office_bluray_on
       icon: 'mdi:television'
       tap_action:
         action: call-service
         service: script.turn_on
         service_data:
-          entity_id: script._office_bluray_on
+          entity_id: script.office_bluray_on

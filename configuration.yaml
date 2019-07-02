@@ -24,7 +24,7 @@ http:
   api_password: !secret api_password
 
 logger:
-  default: warning
+  default: info
   logs:
           roomba: warning
 
