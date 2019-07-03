@@ -1,0 +1,25 @@
+shade_garden_watering:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.watering_for_fern
+    - service: notify.slack
+      data:
+        message: 'I started watering the shade garden by misting the fern.'
+    - delay: '00:05:00'
+    - service: switch.turn_off
+      entity_id: switch.watering_for_fern
+    - service: switch.turn_on
+      entity_id: switch.watering_for_shade_garden
+    - service: notify.slack
+      data:
+        message: 'I have stopped misting the fern and am watering the pots.'
+    - delay: '00:05:00'
+    - service: switch.turn_off
+      entity_id: switch.watering_for_shade_garden
+    - service: switch.turn_off
+      entity_id: switch.watering_for_fern
+    - service: switch.turn_off
+      entity_id: switch.watering_for_shade_garden
+    - service: notify.slack
+      data:
+        message: 'Shade garden watering complete.'

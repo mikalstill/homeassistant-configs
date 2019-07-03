@@ -28,12 +28,13 @@ for blaster in BLASTERS:
                     out.write(
 """%(device)s_%(function)s:
   sequence:
-    - service: switch.broadlink_send_packet_%(address)s
+    - service: broadlink.send
       data:
+        host: %(address)s
         packet:
           - '%(code)s'
 
 """ % {'device': device,
        'function': function,
-       'address': BLASTERS[blaster]['address'].replace('.', '_'),
+       'address': BLASTERS[blaster]['address'],
        'code': code})
