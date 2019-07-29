@@ -112,6 +112,8 @@ recorder:
 
 system_health:
 
+tplink:
+
 # My custom components
 bom_forecast:
 event_history:

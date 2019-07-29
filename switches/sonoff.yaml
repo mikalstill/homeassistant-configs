@@ -1,7 +1,7 @@
 # Brilliant Wifi Smart Plug running Tasmota. Controls the ensuite heated towel rail.
-- platform: mqtt
-  name: "Ensuite towel rail"
-  command_topic: "cmnd/sonoff8/POWER1"
+#- platform: mqtt
+#  name: "Ensuite towel rail"
+#  command_topic: "cmnd/sonoff8/POWER1"
 
 # Brilliant Wifi Smart Plug running Tasmota. Controls the electronics bench in the office.
 - platform: mqtt

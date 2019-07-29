@@ -1,27 +1,27 @@
-- alias: 'Start heating my towel an hour before sunrise if we are home and its going to be cold'
-  hide_entity: false
-  trigger:
-    platform: sun
-    event: sunrise
-    offset: '-01:00:00'
-  condition:
-    condition: and
-    conditions:
-    - condition: template
-      value_template: '{{ states.bom_forecast.forecast.attributes.today_temp_max < 22 }}'
-  action:
-    - service: switch.turn_on
-      entity_id: switch.ensuite_towel_rail
-    - service: notify.slack
-      data_template:
-        message: 'It is going to be cold today so I have warmed your towel.'
+#- alias: 'Start heating my towel an hour before sunrise if we are home and its going to be cold'
+#  hide_entity: false
+#  trigger:
+#    platform: sun
+#    event: sunrise
+#    offset: '-01:00:00'
+#  condition:
+#    condition: and
+#    conditions:
+#    - condition: template
+#      value_template: '{{ states.bom_forecast.forecast.attributes.today_temp_max < 22 }}'
+#  action:
+#    - service: switch.turn_on
+#      entity_id: switch.ensuite_towel_rail
+#    - service: notify.slack
+#      data_template:
+#        message: 'It is going to be cold today so I have warmed your towel.'
 
-- alias: 'Turn towel rail off at 9am'
-  hide_entity: false
-  trigger:
-    platform: time
-    at: '09:00:00'
-  action:
-    - service: switch.turn_off
-      entity_id: switch.ensuite_towel_rail
+#- alias: 'Turn towel rail off at 9am'
+#  hide_entity: false
+#  trigger:
+#    platform: time
+#    at: '09:00:00'
+#  action:
+#    - service: switch.turn_off
+#      entity_id: switch.ensuite_towel_rail
 
