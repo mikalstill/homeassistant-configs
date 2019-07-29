@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # A simple script to help with learning codes, with apologies to the
 # broadlink team for recycling their code.
@@ -6,7 +6,8 @@
 # Run something like this:
 #
 # >> workon broadlink
-# >> python ./irblaster_learn.py "0x2737 192.168.1.230 32434134ea34"
+# >> python ./irblaster_learn.py "0x2737 192.168.1.230 32434134ea34"  (office)
+# >> python ./irblaster_learn.py "0x27c2 192.168.1.231 838351770f78"  (lounge)
 
 import base64
 import broadlink
@@ -22,13 +23,14 @@ mac = bytearray.fromhex(values[2])
 
 dev = broadlink.gendevice(devicetype, (host, 80), mac)
 dev.auth()
+print(dir(dev))
 
 # What is its name (ends up as the name of the code file)
-target = raw_input('What target are we programming? ')
+target = input('What target are we programming? ')
 with open('%s.codes' % target, 'w+') as f:
     # Read buttons forever
     while True:
-        button = raw_input('What button? ')
+        button = input('What button? ')
         dev.enter_learning()
         data = None
         print('Learning...')
@@ -40,7 +42,7 @@ with open('%s.codes' % target, 'w+') as f:
         if data:
             learned = ''.join(format(x, '02x') for x in bytearray(data))
             print('Learned: %s' % learned)
-            encoded = base64.b64encode(data).replace('\n', '')
+            encoded = base64.b64encode(data).decode('utf-8').replace('\n', '')
             print('Encoded: %s' % encoded)
 
             f.write('%s %s\n' %(button, encoded))

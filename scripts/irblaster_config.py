@@ -11,8 +11,16 @@ BLASTERS = {
             ('office_aircon', 'daikin_aircon'),
         ]
     },
-    'lab': {
+    'lounge': {
         'address': '192.168.1.231',
+        'devices': [
+            ('lounge_tv', 'samsung_tv'),
+            ('lounge_bluray', 'laser_bluray'),
+            ('lounge_amp', 'denon_avr_891'),
+        ]
+    },
+    'lab': {
+        'address': '192.168.1.232',
         'devices': [
             ('lab_aircon', 'carson_aircon'),
             ]

@@ -1,0 +1,14 @@
+lounge_chromecast_on:
+  sequence:
+    - service: script.lounge_tv_power_on
+    - service: script.lounge_amp_power_on
+    - delay: '00:00:15'
+    - service: script.lounge_amp_input_vaux
+    - service: script.lounge_tv_input_hdmi1
+
+lounge_chromecast_off:
+  sequence:
+    - service: script.lounge_tv_power_off
+    - service: script.lounge_amp_power_off
+
+
