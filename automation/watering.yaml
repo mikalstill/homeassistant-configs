@@ -12,3 +12,16 @@
     - service: script.turn_on
       entity_id: script.shade_garden_watering
 
+- alias: 'Water the garden by the front door'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '11:00:00'
+  condition:
+  - condition: time
+    weekday:
+      - sun
+      - wed
+  action:
+    - service: script.turn_on
+      entity_id: script.front_door_watering

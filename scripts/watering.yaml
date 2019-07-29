@@ -23,3 +23,19 @@ shade_garden_watering:
     - service: notify.slack
       data:
         message: 'Shade garden watering complete.'
+
+front_door_watering:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.watering_for_front_door
+    - service: notify.slack
+      data:
+        message: 'I started watering the plants near the front door.'
+    - delay: '00:05:00'
+    - service: switch.turn_off
+      entity_id: switch.watering_for_front_door
+    - service: switch.turn_off
+      entity_id: switch.watering_for_front_door
+    - service: notify.slack
+      data:
+        message: 'Front door watering complete.'

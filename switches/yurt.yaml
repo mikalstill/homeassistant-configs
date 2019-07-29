@@ -14,3 +14,8 @@
       friendly_name: Watering for shade garden
       command_on: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 3 on
       command_off: /srv/homeassistant/config/helpers/yurtcmd yurt1.home.stillhq.com 3 off
+
+    watering_for_front_door:
+      friendly_name: Watering for front door
+      command_on: /srv/homeassistant/config/helpers/yurtcmd yurt2.home.stillhq.com 1 on
+      command_off: /srv/homeassistant/config/helpers/yurtcmd yurt2.home.stillhq.com 1 off
