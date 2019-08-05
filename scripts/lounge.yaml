@@ -1,14 +1,21 @@
-lounge_chromecast_on:
+lounge_tv_on:
   sequence:
     - service: script.lounge_tv_power_on
-    - service: script.lounge_amp_power_on
-    - delay: '00:00:15'
-    - service: script.lounge_amp_input_vaux
-    - service: script.lounge_tv_input_hdmi1
+    - service: device_tracker.see
+      data:
+        dev_id: lounge_tv
+        location_name: 'home'
+    - delay: '00:00:02'
+    - service: script.lounge_tv_input_tv
+    - delay: '00:00:01'
+    - service: script.lounge_tv_2
+    - delay: '00:00:01'
+    - service: script.lounge_tv_2
 
-lounge_chromecast_off:
+lounge_tv_off:
   sequence:
     - service: script.lounge_tv_power_off
-    - service: script.lounge_amp_power_off
-
-
+    - service: device_tracker.see
+      data:
+        dev_id: lounge_tv
+        location_name: 'not_home'

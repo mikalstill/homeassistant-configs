@@ -16,6 +16,24 @@ Family:
   # Calculated summary fed via MQTT pretending to be owntracks
   - device_tracker.michael_summary
 
+office_devices:
+  - switch.office_bluray
+  - switch.office_chromecast
+  - switch.office_workbench
+  - automation.office_power_up
+  - automation.office_power_down
+
+office_aircon:
+  - script.office_aircon_power_off
+  - script.office_aircon_fan
+  - script.office_aircon_heat_at_16
+  - script.office_aircon_heat_at_18
+  - script.office_aircon_heat_at_20
+  - script.office_aircon_ac_at_22
+  - script.office_aircon_ac_at_24
+  - script.office_aircon_ac_at_26
+  - script.office_aircon_ac_at_28
+
 # Views
 default_view:
   name: Home
@@ -27,6 +45,13 @@ default_view:
    - group.all_vacuum_cleaners
    - group.family
    - group.michael
+
+office_view:
+  name: Office
+  view: yes
+  entities:
+   - group.office_devices
+   - group.office_aircon
 
 automation_view:
   name: Automation
