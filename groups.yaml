@@ -22,6 +22,11 @@ office_devices:
   - switch.office_workbench
   - automation.office_power_up
   - automation.office_power_down
+  - light.office
+  - light.office_couch_left
+  - light.office_couch_right
+  - light.office_desk
+  - light.office_lights_4
 
 office_aircon:
   - script.office_aircon_power_off
