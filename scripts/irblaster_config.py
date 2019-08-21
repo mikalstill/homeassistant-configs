@@ -12,7 +12,7 @@ BLASTERS = {
         ]
     },
     'lounge': {
-        'address': '192.168.1.231',
+        'address': '192.168.1.232',
         'devices': [
             ('lounge_tv', 'samsung_tv'),
             ('lounge_bluray', 'laser_bluray'),
@@ -20,7 +20,7 @@ BLASTERS = {
         ]
     },
     'lab': {
-        'address': '192.168.1.232',
+        'address': '192.168.1.231',
         'devices': [
             ('lab_aircon', 'carson_aircon'),
             ]
