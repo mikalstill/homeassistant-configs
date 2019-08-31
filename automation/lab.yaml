@@ -1,0 +1,42 @@
+- alias: 'Lab too warm'
+  hide_entity: false
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.lab_temperature
+      above: 26.0
+      for: '00:05:00'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.sun_room_ac
+      state: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.sun_room_ac
+    - service: notify.slack
+      data_template:
+        message: 'The sun room is too hot and the AC is off.'
+    - delay: '00:00:10'
+    - service: script.turn_on
+      entity_id: script.lab_cooling_on
+
+- alias: 'Lab now cool'
+  hide_entity: false
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.lab_temperature
+      below: 22.0
+      for: '00:05:00'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: switch.sun_room_ac
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.sun_room_ac
+    - service: notify.slack
+      data_template:
+        message: 'The sun room is now cooler, I have turned the AC off.'

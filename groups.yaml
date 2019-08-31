@@ -39,6 +39,15 @@ office_aircon:
   - script.office_aircon_ac_at_26
   - script.office_aircon_ac_at_28
 
+lab:
+  - script.lab_cooling_on
+  - switch.sun_room_ac
+  - script.lab_aircon_cool
+  - script.lab_aircon_fan
+  - script.lab_aircon_low
+  - script.lab_aircon_high
+  - script.lab_aircon_power_toggle
+
 # Views
 default_view:
   name: Home
@@ -57,6 +66,7 @@ office_view:
   entities:
    - group.office_devices
    - group.office_aircon
+   - group.lab
 
 automation_view:
   name: Automation
