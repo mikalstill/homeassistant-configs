@@ -19,7 +19,7 @@
   action:
     - service: notify.slack
       data_template:
-        message: 'Good morning! Today is forecast to be "{{states.bom_forecast.forecast.attributes.today_forecast}}", with a maximum of {{states.bom_forecast.forecast.attributes.today_temp_max}} and {{states.bom_forecast.forecast.attributes.today_rain}} chance of rain.'
+        message: 'Good morning! Today is forecast to be "{{states.bom_forecast.forecast.attributes.today_forecast}}", with a maximum of {{states.bom_forecast.forecast.attributes.today_temp_max}} and {{states.bom_forecast.forecast.attributes.today_rain}} chance of rain. It is currenly {{states.sensor.outside_temperature.state_with_unit}} outside.'
     - service: event_history.record_event
       data:
         name: 'good_morning'

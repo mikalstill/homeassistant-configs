@@ -14,9 +14,9 @@
   action:
     - service: switch.turn_on
       entity_id: switch.sun_room_ac
-    - service: notify.slack
-      data_template:
-        message: 'The sun room is too hot and the AC is off.'
+#    - service: notify.slack
+#      data_template:
+#        message: 'The sun room is too hot and the AC is off.'
     - delay: '00:00:10'
     - service: script.turn_on
       entity_id: script.lab_cooling_on
@@ -37,6 +37,6 @@
   action:
     - service: switch.turn_off
       entity_id: switch.sun_room_ac
-    - service: notify.slack
-      data_template:
-        message: 'The sun room is now cooler, I have turned the AC off.'
+#    - service: notify.slack
+#      data_template:
+#        message: 'The sun room is now cooler, I have turned the AC off.'

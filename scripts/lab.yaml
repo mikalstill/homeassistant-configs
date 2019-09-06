@@ -3,6 +3,6 @@ lab_cooling_on:
     - service: script.lab_aircon_power_toggle
     - service: script.lab_aircon_cool
     - service: script.lab_aircon_low
-    - service: notify.slack
-      data:
-        message: 'The sun room airconditioner is now cooling.'
+#    - service: notify.slack
+#      data:
+#        message: 'The sun room airconditioner is now cooling.'
