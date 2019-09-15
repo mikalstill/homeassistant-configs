@@ -1,0 +1,67 @@
+- alias: 'Publish power usage and state from tp-link switches'
+  trigger:
+  - platform: time_pattern
+    minutes: '/1'
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/sunroom_ac/POWER'
+      payload_template: '{{state_attr("switch.sun_room_ac", "current_power_w")}}'
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/sunroom_ac/STATE'
+      payload_template: '{{states("switch.sun_room_ac")}}'
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/ensuite_heated_towel_rail/POWER'
+      payload_template: '{{state_attr("switch.ensuite_heated_towel_rail", "current_power_w")}}'
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/ensuite_heated_towel_rail/STATE'
+      payload_template: '{{states("switch.ensuite_heated_towel_rail")}}'
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/dust_extractor/POWER'
+      payload_template: '{{state_attr("switch.dust_extractor", "current_power_w")}}'
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/ensuite_heated_towel_rail/STATE'
+      payload_template: '{{states("switch.dust_extractor")}}'
+
+- alias: 'Publish state from sonoff switches'
+  trigger:
+  - platform: time_pattern
+    minutes: '/1'
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/office_workbench/STATE'
+      payload_template: '{{states("switch.office_workbench")}}'
+
+- alias: 'Publish state from yurt wifi switches'
+  trigger:
+  - platform: time_pattern
+    minutes: '/1'
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/watering_for_fern/STATE'
+      payload_template: '{{states("switch.watering_for_fern")}}'
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/watering_for_shade_garden/STATE'
+      payload_template: '{{states("switch.watering_for_shade_garden")}}'
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/watering_for_front_door/STATE'
+      payload_template: '{{states("switch.watering_for_front_door")}}'
+
+- alias: 'Publish state from IPMI switches'
+  trigger:
+  - platform: time_pattern
+    minutes: '/1'
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: 'currentcost/lab5/STATE'
+      payload_template: '{{states("switch.lab5")}}'
