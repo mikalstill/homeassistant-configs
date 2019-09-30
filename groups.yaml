@@ -35,6 +35,16 @@ office_aircon:
   - script.office_aircon_ac_at_26
   - script.office_aircon_ac_at_28
 
+office_tv:
+  - script.office_tv_power_off
+  - script.office_tv_power_on
+  - script.office_tv_volume_down
+  - script.office_tv_volume_up
+  - script.office_tv_input_hdmi1
+  - script.office_tv_input_hdmi2
+  - script.office_tv_input_hdmi3
+  - script.office_tv_input_hdmi4
+
 lab:
   - switch.lab5
   - script.lab_cooling_on
@@ -63,6 +73,7 @@ office_view:
   entities:
    - group.office_devices
    - group.office_aircon
+   - group.office_tv
    - group.lab
 
 automation_view:
