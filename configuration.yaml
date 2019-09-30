@@ -85,6 +85,7 @@ group: !include groups.yaml
 light: !include light.yaml
 script: !include_dir_merge_named scripts
 sensor: !include_dir_merge_list sensors
+binary_sensor: !include binary_sensors.yaml
 switch: !include_dir_merge_list switches
 vacuum: !include vacuum.yaml
 

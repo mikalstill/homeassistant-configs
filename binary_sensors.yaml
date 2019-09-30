@@ -1,0 +1,16 @@
+  - platform: bayesian
+    prior: 0.5
+    name: 'Michael'
+    device_class: 'presence'
+    probability_threshold: 0.9
+    observations:
+      - entity_id: 'device_tracker.michaels_phone'
+        prob_given_true: 0.5
+        prob_given_false: 0.1
+        platform: 'state'
+        to_state: 'home'
+      - entity_id: 'device_tracker.michaels_atom'
+        prob_given_true: 0.5
+        prob_given_false: 0.1
+        platform: 'state'
+        to_state: 'home'

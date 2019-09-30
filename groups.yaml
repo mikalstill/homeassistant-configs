@@ -2,9 +2,7 @@ Michael:
   # Fed by unifi
   - device_tracker.michaels_phone
   - device_tracker.michaels_atom
-
-  # Calculated summary fed via MQTT pretending to be owntracks
-  - device_tracker.michael_summary
+  - binary_sensor.michael
 
 Family:
   # Fed by unifi
@@ -12,9 +10,7 @@ Family:
   - device_tracker.andrews_phone
   - device_tracker.matthews_phone
   - device_tracker.als_phone
-
-  # Calculated summary fed via MQTT pretending to be owntracks
-  - device_tracker.michael_summary
+  - binary_sensor.michael
 
 office_devices:
   - switch.office_bluray

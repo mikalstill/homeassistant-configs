@@ -12,8 +12,8 @@
       after: '04:00:00'
       before: '10:00:00'
     - condition: state
-      entity_id: device_tracker.michael_summary
-      state: 'home'
+      entity_id: binary_sensor.michael
+      state: 'on'
     - condition: template
       value_template: '{{ (as_timestamp(now()) - states.event_history.events.attributes.good_morning | default(0) | int > 64800 )}}'
   action:
@@ -66,8 +66,8 @@
       after: '04:00:00'
       before: '22:00:00'
     - condition: state
-      entity_id: device_tracker.michael_summary
-      state: 'home'
+      entity_id: binary_sensor.michael
+      state: 'on'
     - condition: state
       entity_id: light.office_desk
       state: 'on'
