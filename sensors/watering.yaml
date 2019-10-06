@@ -1,0 +1,12 @@
+# Are we on the summer or winter watering schedule? Summer is defined
+# by law in this case to be September thru May.
+- platform: template
+  sensors:
+    watering_restrictions:
+      friendly_name: "Watering restrictions apply"
+      value_template: >-
+        {% if now().month in [9, 10, 11, 12, 1, 2, 3, 4, 5] -%}
+          on
+        {%- else -%}
+          off
+        {%- endif %}

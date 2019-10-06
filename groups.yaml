@@ -97,6 +97,7 @@ sensor_view:
    - sensor.office_temperature
    - sensor.outside_humidity
    - sensor.outside_temperature
+   - sensor.watering_restrictions
 
 media_view:
   name: Media

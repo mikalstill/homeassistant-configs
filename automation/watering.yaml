@@ -1,27 +1,133 @@
-- alias: 'Water the shade garden'
+# Local law requires watering at night between September and May. That said,
+# we need to mist the fern frequently for short periods when its hot or it
+# will die.
+
+- alias: 'Water the shade garden (winter)'
   hide_entity: false
   trigger:
     platform: time
     at: '12:00:00'
   condition:
-  - condition: time
-    weekday:
-      - sun
-      - wed
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - sun
+          - wed
+      - condition: state
+        entity_id: 'sensor.watering_restrictions'
+        state: 'off'
   action:
     - service: script.turn_on
       entity_id: script.shade_garden_watering
 
-- alias: 'Water the garden by the front door'
+- alias: 'Water the shade garden (summer)'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - sun
+          - wed
+      - condition: state
+        entity_id: 'sensor.watering_restrictions'
+        state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.shade_garden_watering
+
+- alias: 'Water the fern more when its hot (8am)'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '08:00:00'
+  condition:
+    condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.outside_temperature
+      above: 20.0
+  action:
+    - service: script.turn_on
+      entity_id: script.warm_weather_fern_watering
+
+- alias: 'Water the fern more when its hot (noon)'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '12:00:00'
+  condition:
+  condition:
+    condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.outside_temperature
+      above: 25.0
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - thu
+        - fri
+        - sat
+  action:
+    - service: script.turn_on
+      entity_id: script.warm_weather_fern_watering
+
+- alias: 'Water the fern more when its hot (4pm)'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '16:00:00'
+  condition:
+  condition:
+    condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.outside_temperature
+      above: 25.0
+  action:
+    - service: script.turn_on
+      entity_id: script.warm_weather_fern_watering
+
+- alias: 'Water the garden by the front door (winter)'
   hide_entity: false
   trigger:
     platform: time
     at: '11:00:00'
   condition:
-  - condition: time
-    weekday:
-      - sun
-      - wed
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - sun
+          - wed
+      - condition: state
+        entity_id: 'sensor.watering_restrictions'
+        state: 'off'
+  action:
+    - service: script.turn_on
+      entity_id: script.front_door_watering
+
+- alias: 'Water the garden by the front door (summer)'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '19:30:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - sun
+          - wed
+      - condition: state
+        entity_id: 'sensor.watering_restrictions'
+        state: 'on'
   action:
     - service: script.turn_on
       entity_id: script.front_door_watering
