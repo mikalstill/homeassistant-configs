@@ -2,9 +2,6 @@ shade_garden_watering:
   sequence:
     - service: switch.turn_on
       entity_id: switch.watering_for_fern
-    - service: notify.slack
-      data:
-        message: 'I started watering the shade garden by misting the fern.'
     - delay: '00:05:00'
     - service: switch.turn_off
       entity_id: switch.watering_for_fern
@@ -12,7 +9,7 @@ shade_garden_watering:
       entity_id: switch.watering_for_shade_garden
     - service: notify.slack
       data:
-        message: 'I have stopped misting the fern and am watering the pots.'
+        message: 'I misted the fern.'
     - delay: '00:05:00'
     - service: switch.turn_off
       entity_id: switch.watering_for_shade_garden
@@ -22,15 +19,12 @@ shade_garden_watering:
       entity_id: switch.watering_for_shade_garden
     - service: notify.slack
       data:
-        message: 'Shade garden watering complete.'
+        message: 'I watered the shade garden.'
 
 warm_weather_fern_watering:
   sequence:
     - service: switch.turn_on
       entity_id: switch.watering_for_fern
-    - service: notify.slack
-      data:
-        message: 'Its warm so I am briefing misting the fern.'
     - delay: '00:00:30'
     - service: switch.turn_off
       entity_id: switch.watering_for_fern
@@ -38,15 +32,12 @@ warm_weather_fern_watering:
       entity_id: switch.watering_for_fern
     - service: notify.slack
       data:
-        message: 'Fern misting complete.'
+        message: 'I briefly misted the fern because its warm.'
 
 front_door_watering:
   sequence:
     - service: switch.turn_on
       entity_id: switch.watering_for_front_door
-    - service: notify.slack
-      data:
-        message: 'I started watering the plants near the front door.'
     - delay: '00:02:00'
     - service: switch.turn_off
       entity_id: switch.watering_for_front_door
@@ -54,4 +45,4 @@ front_door_watering:
       entity_id: switch.watering_for_front_door
     - service: notify.slack
       data:
-        message: 'Front door watering complete.'
+        message: 'I watered the plants by the front door.'

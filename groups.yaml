@@ -6,10 +6,10 @@ Michael:
 
 Family:
   # Fed by unifi
-  - device_tracker.catherines_phone
-  - device_tracker.andrews_phone
-  - device_tracker.matthews_phone
-  - device_tracker.als_phone
+  - device_tracker.catherine
+  - device_tracker.andrew
+  - device_tracker.matthew
+  - device_tracker.allister
   - binary_sensor.michael
 
 office_devices:
