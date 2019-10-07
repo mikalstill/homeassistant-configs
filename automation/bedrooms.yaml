@@ -3,25 +3,29 @@
   trigger:
     - platform: sun
       event: sunset
+      offset: "-00:30:00"
   condition:
-    - condition: and
+    - condition: or
       conditions:
       - condition: state
-        entity_id: light.master_bed_michael
-        state: 'off'
+        entity_id: binary_sensor.michael
+        state: 'on'
       - condition: state
-        entity_id: light.master_bed_catherine
-        state: 'off'
+        entity_id: device_tracker.catherine
+        state: 'home'
+      - condition: state
+        entity_id: device_tracker.allister
+        state: 'home'
   action:
     - service: light.turn_on
       entity_id: light.master_bed_michael
       data:
-        brightness: 15
+        brightness: 100
         rgb_color: [255, 135, 135]
     - service: light.turn_on
       entity_id: light.master_bed_catherine
       data:
-        brightness: 15
+        brightness: 100
         rgb_color: [255, 135, 135]
 
 - alias: 'Gentle wake up on weekday mornings, but not on holidays'
