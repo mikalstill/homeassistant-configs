@@ -12,6 +12,15 @@ Family:
   - device_tracker.allister
   - binary_sensor.michael
 
+office_sensors:
+  name: Office Sensors
+  entities:
+    - sensor.lab_humidity
+    - sensor.lab_temperature
+    - sensor.office_humidity
+    - sensor.office_illuminance
+    - sensor.office_temperature
+
 office_devices:
   name: Office Devices
   entities:
@@ -83,6 +92,14 @@ house_lights:
     - light.master_bed_catherine
     - light.master_bedroom
 
+house_sensors:
+  name: House Sensors
+  entities:
+    - bom_forecast.forecast
+    - sensor.outside_humidity
+    - sensor.outside_temperature
+    - sensor.watering_restrictions
+
 house_devices:
   name: House Devices
   entities:
@@ -100,7 +117,7 @@ default_view:
    - group.front_lights
    - group.house_lights
    - group.house_devices
-   - group.all_vacuum_cleaners
+   - group.house_sensors
    - group.family
    - group.michael
 
@@ -108,6 +125,7 @@ office_view:
   name: Office
   view: yes
   entities:
+   - group.office_sensors
    - group.office_devices
    - group.office_aircon
    - group.office_tv
@@ -156,4 +174,5 @@ weather_view:
   entities:
    - camera.weather_radar
    - weather.bom_tuggeranong
+   - bom_forecast.forecast
    
