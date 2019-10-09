@@ -13,56 +13,93 @@ Family:
   - binary_sensor.michael
 
 office_devices:
-  - switch.office_bluray
-  - switch.office_chromecast
-  - switch.office_workbench
-  - automation.office_power_up
-  - automation.office_power_down
-  - light.office
-  - light.office_couch_left
-  - light.office_couch_right
-  - light.office_desk
-  - light.office_lights_4
+  name: Office Devices
+  entities:
+    - switch.office_bluray
+    - switch.office_chromecast
+    - switch.office_workbench
+    - automation.office_power_up
+    - automation.office_power_down
+    - light.office
+    - light.office_couch_left
+    - light.office_couch_right
+    - light.office_desk
+    - light.office_lights_4
 
 office_aircon:
-  - script.office_aircon_power_off
-  - script.office_aircon_fan
-  - script.office_aircon_heat_at_16
-  - script.office_aircon_heat_at_18
-  - script.office_aircon_heat_at_20
-  - script.office_aircon_ac_at_22
-  - script.office_aircon_ac_at_24
-  - script.office_aircon_ac_at_26
-  - script.office_aircon_ac_at_28
+  name: Office Air Conditioning
+  entities:
+    - script.office_aircon_power_off
+    - script.office_aircon_fan
+    - script.office_aircon_heat_at_16
+    - script.office_aircon_heat_at_18
+    - script.office_aircon_heat_at_20
+    - script.office_aircon_ac_at_22
+    - script.office_aircon_ac_at_24
+    - script.office_aircon_ac_at_26
+    - script.office_aircon_ac_at_28
 
 office_tv:
-  - script.office_tv_power_off
-  - script.office_tv_power_on
-  - script.office_tv_volume_down
-  - script.office_tv_volume_up
-  - script.office_tv_input_hdmi1
-  - script.office_tv_input_hdmi2
-  - script.office_tv_input_hdmi3
-  - script.office_tv_input_hdmi4
+  name: Office TV
+  entities:
+    - script.office_tv_power_off
+    - script.office_tv_power_on
+    - script.office_tv_volume_down
+    - script.office_tv_volume_up
+    - script.office_tv_input_hdmi1
+    - script.office_tv_input_hdmi2
+    - script.office_tv_input_hdmi3
+    - script.office_tv_input_hdmi4
 
 lab:
-  - switch.lab5
-  - script.lab_cooling_on
-  - switch.sun_room_ac
-  - script.lab_aircon_cool
-  - script.lab_aircon_fan
-  - script.lab_aircon_low
-  - script.lab_aircon_high
-  - script.lab_aircon_power_toggle
+  name: Lab Devices
+  entities:
+    - switch.lab5
+    - script.lab_cooling_on
+    - switch.sun_room_ac
+    - script.lab_aircon_cool
+    - script.lab_aircon_fan
+    - script.lab_aircon_low
+    - script.lab_aircon_high
+    - script.lab_aircon_power_toggle
+
+front_lights:
+  name: Front Lights
+  entities:
+    - light.hue_ambiance_downlight_1
+    - light.hue_ambiance_downlight_2
+    - light.front_patio
+
+house_lights:
+  name: House Lights
+  entities:
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_3
+    - light.hue_color_lamp_2
+    - light.lounge_room
+    - light.hall_lamp
+    - light.jacqui_lamp
+    - light.master_bed_michael
+    - light.master_bed_catherine
+    - light.master_bedroom
+
+house_devices:
+  name: House Devices
+  entities:
+    - switch.dust_extractor
+    - switch.ensuite_heated_towel_rail
+    - script.shade_garden_watering
+    - script.warm_weather_fern_watering
+    - script.front_door_watering
 
 # Views
 default_view:
   name: Home
   view: yes
   entities:
-   - event_history.events
-   - group.all_lights
-   - group.all_switches
+   - group.front_lights
+   - group.house_lights
+   - group.house_devices
    - group.all_vacuum_cleaners
    - group.family
    - group.michael
