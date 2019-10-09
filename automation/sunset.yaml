@@ -1,0 +1,55 @@
+- alias: 'Evening and master bedroom users home'
+  hide_entity: false
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-00:30:00"
+  condition:
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: binary_sensor.michael
+        state: 'on'
+      - condition: state
+        entity_id: device_tracker.catherine
+        state: 'home'
+      - condition: state
+        entity_id: device_tracker.allister
+        state: 'home'
+  action:
+    - service: light.turn_on
+      entity_id: light.master_bed_michael
+      data:
+        brightness: 100
+        rgb_color: [255, 135, 135]
+    - service: light.turn_on
+      entity_id: light.master_bed_catherine
+      data:
+        brightness: 100
+        rgb_color: [255, 135, 135]
+
+- alias: 'Evening regardless of who is home'
+  hide_entity: false
+  trigger:
+    - platform: sun
+      event: sunset
+      offset: "-00:30:00"
+  action:
+    - service: light.turn_on
+      entity_id: light.hue_ambiance_downlight_1
+      data:
+        brightness: 30
+    - service: light.turn_on
+      entity_id: light.hue_ambiance_downlight_2
+      data:
+        brightness: 30
+    - service: light.turn_on
+      entity_id: light.jacqui_lamp
+      data:
+        brightness: 100
+        rgb_color: [255, 0, 127]
+    - service: light.turn_on
+      entity_id: light.hall_lamp
+      data:
+        brightness: 100
+        rgb_color: [255, 135, 135]
