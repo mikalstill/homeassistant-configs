@@ -105,9 +105,21 @@ house_devices:
   entities:
     - switch.dust_extractor
     - switch.ensuite_heated_towel_rail
+
+house_scripts:
+  name: House Scripts
+  entities:
     - script.shade_garden_watering
     - script.warm_weather_fern_watering
     - script.front_door_watering
+
+house_watering:
+  name: House Watering Solenoids
+  entities:
+    - switch.watering_for_yurt
+    - switch.watering_for_fern
+    - switch.watering_for_shade_garden
+    - switch.watering_for_front_door
 
 # Views
 default_view:
@@ -118,6 +130,8 @@ default_view:
    - group.house_lights
    - group.house_devices
    - group.house_sensors
+   - group.house_scripts
+   - group.house_watering
    - group.family
    - group.michael
 
