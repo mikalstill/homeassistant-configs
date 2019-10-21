@@ -61,7 +61,6 @@
     platform: time
     at: '12:00:00'
   condition:
-  condition:
     condition: and
     conditions:
     - condition: numeric_state
@@ -83,7 +82,6 @@
   trigger:
     platform: time
     at: '16:00:00'
-  condition:
   condition:
     condition: and
     conditions:
@@ -131,3 +129,52 @@
   action:
     - service: script.turn_on
       entity_id: script.front_door_watering
+
+# Make really sure watering solenoids are off as sometimes they get stuck on
+- alias: Ensure yurt watering solenoid is off
+  hide_entity: true
+  trigger:
+    platform: time_pattern
+    minutes: "*"
+  condition:
+    - condition: state
+      entity_id: switch.watering_for_yurt
+      state: 'off'
+  action:
+    - service: shell_command.watering_for_yurt_off
+
+- alias: Ensure fern watering solenoid is off
+  hide_entity: true
+  trigger:
+    platform: time_pattern
+    minutes: "*"
+  condition:
+    - condition: state
+      entity_id: switch.watering_for_fern
+      state: 'off'
+  action:
+    - service: shell_command.watering_for_fern_off
+
+- alias: Ensure shade garden watering solenoid is off
+  hide_entity: true
+  trigger:
+    platform: time_pattern
+    minutes: "*"
+  condition:
+    - condition: state
+      entity_id: switch.watering_for_shade_garden
+      state: 'off'
+  action:
+    - service: shell_command.watering_for_shade_garden_off
+
+- alias: Ensure front door watering solenoid is off
+  hide_entity: true
+  trigger:
+    platform: time_pattern
+    minutes: "*"
+  condition:
+    - condition: state
+      entity_id: switch.watering_for_front_door
+      state: 'off'
+  action:
+    - service: shell_command.watering_for_front_door_off

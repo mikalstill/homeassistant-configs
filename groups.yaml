@@ -63,8 +63,8 @@ office_tv:
 lab:
   name: Lab Devices
   entities:
-    - switch.lab5
     - script.lab_cooling_on
+    - switch.lab5
     - switch.sun_room_ac
     - script.lab_aircon_cool
     - script.lab_aircon_fan
