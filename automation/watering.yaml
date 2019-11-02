@@ -40,6 +40,31 @@
     - service: script.turn_on
       entity_id: script.shade_garden_watering
 
+- alias: 'Water the shade garden (more in summer)'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - thu
+          - fri
+          - sat
+      - condition: numeric_state
+        entity_id: sensor.outside_temperature
+        above: 25.0
+      - condition: state
+        entity_id: 'sensor.watering_restrictions'
+        state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.warm_weather_shade_garden_watering
+
 - alias: 'Water the fern more when its hot (8am)'
   hide_entity: false
   trigger:
@@ -129,6 +154,31 @@
   action:
     - service: script.turn_on
       entity_id: script.front_door_watering
+
+- alias: 'Water the shade garden (more in summer)'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '19:30:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - thu
+          - fri
+          - sat
+      - condition: numeric_state
+        entity_id: sensor.outside_temperature
+        above: 25.0
+      - condition: state
+        entity_id: 'sensor.watering_restrictions'
+        state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.warm_weather_front_door_watering
 
 # Make really sure watering solenoids are off as sometimes they get stuck on
 - alias: Ensure yurt watering solenoid is off

@@ -9,17 +9,27 @@ shade_garden_watering:
       entity_id: switch.watering_for_shade_garden
     - service: notify.slack
       data:
-        message: 'I misted the fern.'
+        message: 'I misted the fern for 5 minutes.'
     - delay: '00:05:00'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_shade_garden
-    - service: switch.turn_off
-      entity_id: switch.watering_for_fern
     - service: switch.turn_off
       entity_id: switch.watering_for_shade_garden
     - service: notify.slack
       data:
-        message: 'I watered the shade garden.'
+        message: 'I watered the shade garden for 5 minutes.'
+    - service: switch.turn_on
+      entity_id: switch.watering_for_yurt
+    - delay: '00:05:00'
+    - service: switch.turn_off
+      entity_id: switch.watering_for_yurt
+    - service: notify.slack
+      data:
+        message: 'I watered the yurt garden for 5 minutes.'
+    - service: switch.turn_off
+      entity_id: switch.watering_for_fern
+    - service: switch.turn_off
+      entity_id: switch.watering_for_shade_garden
+    - service: switch.turn_off
+      entity_id: switch.watering_for_yurt
 
 warm_weather_fern_watering:
   sequence:
@@ -34,6 +44,39 @@ warm_weather_fern_watering:
       data:
         message: 'I briefly misted the fern because its warm.'
 
+warm_weather_shade_garden_watering:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.watering_for_fern
+    - delay: '00:00:30'
+    - service: switch.turn_off
+      entity_id: switch.watering_for_fern
+    - service: notify.slack
+      data:
+        message: 'I briefly misted the fern because its warm.'
+    - service: switch.turn_on
+      entity_id: switch.watering_for_shade_garden
+    - delay: '00:01:00'
+    - service: switch.turn_off
+      entity_id: switch.watering_for_shade_garden
+    - service: notify.slack
+      data:
+        message: 'I watered the shade garden for 1 minute because it is warm.'
+    - service: switch.turn_on
+      entity_id: switch.watering_for_yurt
+    - delay: '00:01:00'
+    - service: switch.turn_off
+      entity_id: switch.watering_for_yurt
+    - service: notify.slack
+      data:
+        message: 'I watered the yurt garden for 1 minute because it is warm.'
+    - service: switch.turn_off
+      entity_id: switch.watering_for_fern
+    - service: switch.turn_off
+      entity_id: switch.watering_for_shade_garden
+    - service: switch.turn_off
+      entity_id: switch.watering_for_yurt
+
 front_door_watering:
   sequence:
     - service: switch.turn_on
@@ -45,4 +88,17 @@ front_door_watering:
       entity_id: switch.watering_for_front_door
     - service: notify.slack
       data:
-        message: 'I watered the plants by the front door.'
+        message: 'I watered the plants by the front door for 2 minutes.'
+
+warm_weather_front_door_watering:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.watering_for_front_door
+    - delay: '00:01:00'
+    - service: switch.turn_off
+      entity_id: switch.watering_for_front_door
+    - service: switch.turn_off
+      entity_id: switch.watering_for_front_door
+    - service: notify.slack
+      data:
+        message: 'I watered the plants by the front door for 1 minute.'

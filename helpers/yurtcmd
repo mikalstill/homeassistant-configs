@@ -26,11 +26,20 @@ def sendcommand(hostname, command):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((hostname, 2000))
     s.settimeout(1)
-    s.send('%s\n' % command)
+    s.recv(1024)
+    s.send(command)
+
+    try:
+        return s.recv(1024).rstrip()
+    except socket.timeout:
+        return None
 
 
 hostname = sys.argv[1]
 relay = sys.argv[2]
-command = sys.argv[3]
 
-sendcommand(hostname, COMMANDS['relay_%s_%s' %(relay, command)])
+if relay == 'temp':
+    print(sendcommand(hostname, COMMANDS['temperature_as_string']))
+else:
+    command = sys.argv[3]
+    sendcommand(hostname, COMMANDS['relay_%s_%s' %(relay, command)])
