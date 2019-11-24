@@ -3,8 +3,8 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.lab_temperature
-      above: 26.0
-      for: '00:05:00'
+      above: 24.0
+      for: '00:01:00'
   condition:
     condition: and
     conditions:
@@ -14,6 +14,23 @@
   action:
     - service: script.turn_on
       entity_id: script.lab_cooling_on
+
+- alias: 'Lab failed to cool'
+  hide_entity: false
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.lab_temperature
+      above: 28.0
+      for: '00:15:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.sun_room_ac
+    - delay: '00:00:20'
+    - service: script.turn_on
+      entity_id: script.lab_cooling_on
+    - service: notify.slack
+      data_template:
+        message: 'We are failing to keep the lab cool.'
 
 - alias: 'Lab now cool'
   hide_entity: false

@@ -222,3 +222,7 @@
   entities:
     - light.master_bed_catherine
     - light.master_bed_michael
+
+# Lytworx
+- platform: flux_led
+  automatic_add: true

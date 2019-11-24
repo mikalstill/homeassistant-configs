@@ -23,6 +23,7 @@ COMMANDS = {
 
 
 def sendcommand(hostname, command):
+    print('Sending yurt command: %s to %s' %(command, hostname))
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((hostname, 2000))
     s.settimeout(1)
@@ -43,3 +44,5 @@ if relay == 'temp':
 else:
     command = sys.argv[3]
     sendcommand(hostname, COMMANDS['relay_%s_%s' %(relay, command)])
+
+print('Yurt command done')

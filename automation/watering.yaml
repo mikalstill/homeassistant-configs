@@ -185,7 +185,7 @@
   hide_entity: true
   trigger:
     platform: time_pattern
-    minutes: "*"
+    minutes: "*/5"
   condition:
     - condition: state
       entity_id: switch.watering_for_yurt
@@ -197,7 +197,7 @@
   hide_entity: true
   trigger:
     platform: time_pattern
-    minutes: "*"
+    minutes: "*/5"
   condition:
     - condition: state
       entity_id: switch.watering_for_fern
@@ -209,7 +209,7 @@
   hide_entity: true
   trigger:
     platform: time_pattern
-    minutes: "*"
+    minutes: "*/5"
   condition:
     - condition: state
       entity_id: switch.watering_for_shade_garden
@@ -221,7 +221,7 @@
   hide_entity: true
   trigger:
     platform: time_pattern
-    minutes: "*"
+    minutes: "*/5"
   condition:
     - condition: state
       entity_id: switch.watering_for_front_door
