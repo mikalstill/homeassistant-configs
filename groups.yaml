@@ -77,20 +77,36 @@ front_lights:
   entities:
     - light.hue_ambiance_downlight_1
     - light.hue_ambiance_downlight_2
-    - light.front_patio
+    # - light.front_patio
 
-house_lights:
-  name: House Lights
+back_lights:
+  name: Back Lights
+  entities:
+    - light.back_deck
+    - light.back_deck_1
+    - light.back_deck_2
+
+lounge_lights:
+  name: Lounge Lights
   entities:
     - light.hue_color_lamp_1
     - light.hue_color_lamp_3
     - light.hue_color_lamp_2
     - light.lounge_room
+
+house_lights:
+  name: House Lights
+  entities:
     - light.hall_lamp
     - light.jacqui_lamp
+
+master_bedroom:
+  name: Master Bedroom
+  entities:
     - light.master_bed_michael
     - light.master_bed_catherine
     - light.master_bedroom
+    - switch.ensuite_heated_towel_rail
 
 house_sensors:
   name: House Sensors
@@ -104,7 +120,6 @@ house_devices:
   name: House Devices
   entities:
     - switch.dust_extractor
-    - switch.ensuite_heated_towel_rail
 
 house_scripts:
   name: House Scripts
@@ -127,6 +142,9 @@ default_view:
   view: yes
   entities:
    - group.front_lights
+   - group.back_lights
+   - group.master_bedroom
+   - group.lounge_lights
    - group.house_lights
    - group.house_devices
    - group.house_sensors

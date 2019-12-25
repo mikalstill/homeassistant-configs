@@ -1,68 +1,48 @@
 group.all_automations:
-  hidden: False
-
+  hidden: false
 group.all_devices:
-  hidden: False
-
+  hidden: false
 group.all_lights:
-  hidden: False
-
+  hidden: false
 group.all_scripts:
-  hidden: False
-
+  hidden: false
 group.all_switches:
-  hidden: False
-
+  hidden: false
 group.all_vaccum_cleaners:
-  hidden: False
-
+  hidden: false
 sensor.coffee_maker:
-  hidden: False
-
+  hidden: false
 sensor.lab_humidity:
-  hidden: False
-
+  hidden: false
 sensor.lab_temperature:
-  hidden: False
-
+  hidden: false
 sensor.office_humidity:
-  hidden: False
-
+  hidden: false
 sensor.office_illuminance:
-  hidden: False
-
+  hidden: false
 sensor.office_temperature:
-  hidden: False
-
+  hidden: false
 sensor.outside_humidity:
-  hidden: False
-
+  hidden: false
 sensor.outside_temperature:
-  hidden: False
-
+  hidden: false
 media_player.ajs_bedroom_tv:
-  hidden: False
-
+  hidden: false
 media_player.jacqui_speaker:
-  hidden: False
-
+  hidden: false
 media_player.jacqui_tv:
-  hidden: False
-
+  hidden: false
 media_player.kitchen_speaker:
-  hidden: False
-
+  hidden: false
 media_player.kitchen_tv:
-  hidden: False
-
+  hidden: false
 media_player.lounge_speaker:
-  hidden: False
-
+  hidden: false
 media_player.lounge_tv:
-  hidden: False
-
+  hidden: false
 media_player.master_tv:
-  hidden: False
-
+  hidden: false
 media_player.office_speaker:
-  hidden: False
+  hidden: false
+light.dc4f2299b888_192_168_1_132:
+  friendly_name: Back deck

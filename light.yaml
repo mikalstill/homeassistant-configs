@@ -208,6 +208,57 @@
   qos: 1
   retain: false
 
+# Arlec fairy lights on the back deck
+- platform: mqtt
+  name: "Back deck 1"
+  command_topic: "cmnd/sonoff14/POWER"
+  state_topic: "tele/sonoff14/STATE"
+  state_value_template: "{{value_json.POWER}}"
+  availability_topic: "tele/sonoff14/LWT"
+  effect_command_topic: "cmnd/sonoff14/Event"
+  effect_list:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  retain: false
+
+- platform: mqtt
+  name: "Back deck 2"
+  command_topic: "cmnd/sonoff15/POWER"
+  state_topic: "tele/sonoff15/STATE"
+  state_value_template: "{{value_json.POWER}}"
+  availability_topic: "tele/sonoff15/LWT"
+  effect_command_topic: "cmnd/sonoff15/Event"
+  effect_list:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  retain: false
+
 # Groups of lights
 - platform: group
   name: Office
@@ -223,6 +274,8 @@
     - light.master_bed_catherine
     - light.master_bed_michael
 
-# Lytworx
-- platform: flux_led
-  automatic_add: true
+- platform: group
+  name: Back Deck
+  entities:
+    - light.back_deck_1
+    - light.back_deck_2

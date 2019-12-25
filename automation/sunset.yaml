@@ -18,12 +18,7 @@
         state: 'home'
   action:
     - service: light.turn_on
-      entity_id: light.master_bed_michael
-      data:
-        brightness: 100
-        rgb_color: [255, 135, 135]
-    - service: light.turn_on
-      entity_id: light.master_bed_catherine
+      entity_id: [light.master_bed_michael, light.master_bed_catherine]
       data:
         brightness: 100
         rgb_color: [255, 135, 135]
@@ -36,11 +31,7 @@
       offset: "-00:30:00"
   action:
     - service: light.turn_on
-      entity_id: light.hue_ambiance_downlight_1
-      data:
-        brightness: 30
-    - service: light.turn_on
-      entity_id: light.hue_ambiance_downlight_2
+      entity_id: [light.hue_ambiance_downlight_1, light.hue_ambiance_downlight_2]
       data:
         brightness: 30
     - service: light.turn_on
@@ -53,3 +44,7 @@
       data:
         brightness: 100
         rgb_color: [255, 135, 135]
+    - service: light.turn_on
+      entity_id: [light.back_deck_1, light.back_deck_2]
+      data:
+        effect: 7
