@@ -2,6 +2,8 @@
 # we need to mist the fern frequently for short periods when its hot or it
 # will die.
 
+##### Shade garden #####
+
 - alias: 'Water the shade garden (winter)'
   hide_entity: false
   trigger:
@@ -65,6 +67,8 @@
     - service: script.turn_on
       entity_id: script.warm_weather_shade_garden_watering
 
+##### Fern #####
+
 - alias: 'Water the fern more when its hot (8am)'
   hide_entity: false
   trigger:
@@ -117,6 +121,8 @@
     - service: script.turn_on
       entity_id: script.warm_weather_fern_watering
 
+##### Front door #####
+
 - alias: 'Water the garden by the front door (winter)'
   hide_entity: false
   trigger:
@@ -155,7 +161,7 @@
     - service: script.turn_on
       entity_id: script.front_door_watering
 
-- alias: 'Water the shade garden (more in summer)'
+- alias: 'Water the garden by the front door (more in summer)'
   hide_entity: false
   trigger:
     platform: time
@@ -179,6 +185,73 @@
   action:
     - service: script.turn_on
       entity_id: script.warm_weather_front_door_watering
+
+##### Back fence #####
+
+- alias: 'Water the garden by back fence (winter)'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '13:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - sun
+          - wed
+      - condition: state
+        entity_id: 'sensor.watering_restrictions'
+        state: 'off'
+  action:
+    - service: script.turn_on
+      entity_id: script.back_fence_watering
+
+- alias: 'Water the garden by the back fence (summer)'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '19:45:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - sun
+          - wed
+      - condition: state
+        entity_id: 'sensor.watering_restrictions'
+        state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.back_fence_watering
+
+- alias: 'Water the garden by the back fence (more in summer)'
+  hide_entity: false
+  trigger:
+    platform: time
+    at: '19:30:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+          - mon
+          - tue
+          - thu
+          - fri
+          - sat
+      - condition: numeric_state
+        entity_id: sensor.outside_temperature
+        above: 25.0
+      - condition: state
+        entity_id: 'sensor.watering_restrictions'
+        state: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.warm_weather_back_fence_watering
+
+##### Solenoid management #####
 
 # Make really sure watering solenoids are off as sometimes they get stuck on
 - alias: Ensure yurt watering solenoid is off
@@ -228,3 +301,16 @@
       state: 'off'
   action:
     - service: shell_command.watering_for_front_door_off
+
+- alias: Ensure back fence watering solenoid is off
+  hide_entity: true
+  trigger:
+    platform: time_pattern
+    minutes: "*/5"
+  condition:
+    - condition: state
+      entity_id: switch.watering_for_back_fence
+      state: 'off'
+  action:
+    - service: shell_command.watering_for_back_fence_off
+

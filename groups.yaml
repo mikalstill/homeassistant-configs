@@ -135,6 +135,7 @@ house_watering:
     - switch.watering_for_fern
     - switch.watering_for_shade_garden
     - switch.watering_for_front_door
+    - switch.watering_for_back_fence
 
 # Views
 default_view:
