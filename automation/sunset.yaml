@@ -1,28 +1,3 @@
-- alias: 'Evening and master bedroom users home'
-  hide_entity: false
-  trigger:
-    - platform: sun
-      event: sunset
-      offset: "-00:30:00"
-  condition:
-    - condition: or
-      conditions:
-      - condition: state
-        entity_id: binary_sensor.michael
-        state: 'on'
-      - condition: state
-        entity_id: device_tracker.catherine
-        state: 'home'
-      - condition: state
-        entity_id: device_tracker.allister
-        state: 'home'
-  action:
-    - service: light.turn_on
-      entity_id: [light.master_bed_michael, light.master_bed_catherine]
-      data:
-        brightness: 100
-        rgb_color: [255, 135, 135]
-
 - alias: 'Evening indoor regardless of who is home'
   hide_entity: false
   trigger:
@@ -40,6 +15,12 @@
       data:
         brightness: 100
         rgb_color: [255, 135, 135]
+    - service: light.turn_on
+      entity_id: [light.master_bed_michael, light.master_bed_catherine]
+      data:
+        brightness: 100
+        rgb_color: [255, 135, 135]
+
 
 - alias: 'Evening outdoor regardless of who is home'
   hide_entity: false
