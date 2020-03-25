@@ -21,6 +21,12 @@ office_sensors:
     - sensor.office_illuminance
     - sensor.office_temperature
 
+office_couch:
+  name: Office Couch
+  entities:
+    - light.office_couch_left
+    - light.office_couch_right
+
 office_devices:
   name: Office Devices
   entities:
@@ -30,8 +36,7 @@ office_devices:
     - automation.office_power_up
     - automation.office_power_down
     - light.office
-    - light.office_couch_left
-    - light.office_couch_right
+    - light.office_couch
     - light.office_desk
     - light.office_lights_4
 
@@ -160,6 +165,7 @@ office_view:
   entities:
    - group.office_sensors
    - group.office_devices
+   - group.office_couch
    - group.office_aircon
    - group.office_tv
    - group.lab
