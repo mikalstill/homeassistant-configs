@@ -279,3 +279,7 @@
   entities:
     - light.back_deck_1
     - light.back_deck_2
+
+- platform: nanoleaf
+  host: nanoleaf
+  token: !secret nanoleaf_token

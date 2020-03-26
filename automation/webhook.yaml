@@ -17,6 +17,8 @@
     - service: script.office_aircon_power_off
     - service: switch.turn_off
       entity_id: switch.office_workbench
+    - service: switch.turn_off
+      entity_id: switch.office_desk_optional
 
 - alias: 'Office chromecast on'
   hide_entity: false

@@ -33,10 +33,11 @@ office_devices:
     - switch.office_bluray
     - switch.office_chromecast
     - switch.office_workbench
+    - switch.office_desk_optional
     - automation.office_power_up
     - automation.office_power_down
     - light.office
-    - light.office_couch
+    - group.office_couch
     - light.office_desk
     - light.office_lights_4
 
