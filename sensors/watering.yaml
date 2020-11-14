@@ -1,11 +1,13 @@
 # Are we on the summer or winter watering schedule? Summer is defined
-# by law in this case to be September thru May.
+# by law in this case to be September thru May. Given how cold it is
+# at the start of May (freezing overnight), I am going to assume they mean
+# restrictions end at the start of May.
 - platform: template
   sensors:
     watering_restrictions:
       friendly_name: "Watering restrictions apply"
       value_template: >-
-        {% if now().month in [9, 10, 11, 12, 1, 2, 3, 4, 5] -%}
+        {% if now().month in [9, 10, 11, 12, 1, 2, 3, 4] -%}
           on
         {%- else -%}
           off

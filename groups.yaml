@@ -66,6 +66,23 @@ office_tv:
     - script.office_tv_input_hdmi3
     - script.office_tv_input_hdmi4
 
+office_bluray:
+  name: Office Bluray
+  entities:
+    - script.office_bluray_off
+    - script.office_bluray_on
+    - script.office_bluray_eject
+    - script.office_bluray_play_pause
+    - script.office_bluray_stop
+    - script.office_bluray_up
+    - script.office_bluray_down
+    - script.office_bluray_left
+    - script.office_bluray_right
+    - script.office_bluray_fastforward
+    - script.office_bluray_rewind
+    - script.office_bluray_skip_back
+    - script.office_bluray_skip_forward
+
 lab:
   name: Lab Devices
   entities:
@@ -100,6 +117,47 @@ lounge_lights:
     - light.hue_color_lamp_2
     - light.lounge_room
 
+lounge_tv:
+  name: Lounge TV
+  entities:
+    - script.lounge_tv_power_off
+    - script.lounge_tv_power_on
+    - script.lounge_tv_volume_down
+    - script.lounge_tv_volume_up
+    - script.lounge_tv_input_hdmi1
+    - script.lounge_tv_input_hdmi2
+    - script.lounge_tv_input_hdmi3
+    - script.lounge_tv_input_hdmi4
+
+lounge_bluray:
+  name: Lounge Bluray
+  entities:
+    - script.lounge_bluray_off
+    - script.lounge_bluray_on
+    - script.lounge_bluray_eject
+    - script.lounge_bluray_play_pause
+    - script.lounge_bluray_stop
+    - script.lounge_bluray_up
+    - script.lounge_bluray_down
+    - script.lounge_bluray_left
+    - script.lounge_bluray_right
+    - script.lounge_bluray_fastforward
+    - script.lounge_bluray_rewind
+    - script.lounge_bluray_skip_back
+    - script.lounge_bluray_skip_forward
+
+lounge_amp:
+  name: Lounge Amp
+  entities:
+    - script.lounge_amp_power_on
+    - script.lounge_amp_power_off
+    - script.lounge_amp_input_dvd
+    - script.lounge_amp_input_bd
+    - script.lounge_amp_input_game
+    - script.lounge_amp_input_tuner
+    - script.lounge_amp_input_vaux
+    - script.lounge_amp_input_tv
+ 
 house_lights:
   name: House Lights
   entities:
@@ -151,7 +209,6 @@ default_view:
    - group.front_lights
    - group.back_lights
    - group.master_bedroom
-   - group.lounge_lights
    - group.house_lights
    - group.house_devices
    - group.house_sensors
@@ -170,6 +227,15 @@ office_view:
    - group.office_aircon
    - group.office_tv
    - group.lab
+
+lounge_view:
+  name: Lounge
+  view: yes
+  entities:
+   - group.lounge_lights
+   - group.lounge_tv
+   - group.lounge_bluray
+   - group.lounge_amp
 
 automation_view:
   name: Automation
