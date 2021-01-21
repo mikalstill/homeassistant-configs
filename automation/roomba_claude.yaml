@@ -1,18 +1,16 @@
 - alias: 'Claude bin full'
-  hide_entity: true
   trigger:
     platform: template
-    value_template: "{%if is_state_attr('vacuum.claude_von_roomba', 'bin_full', true) %}true{%endif%}"
+    value_template: "{%if is_state_attr('vacuum.claude', 'bin_full', true) %}true{%endif%}"
   action:
   - service: notify.slack
     data:
       message: 'Claude needs emptying.'
 
 - alias: 'Claude is stuck'
-  hide_entity: true
   trigger:
     - platform: template
-      value_template: "{%if is_state_attr('vacuum.claude_von_roomba', 'status', 'Stuck') %}true{%endif%}"
+      value_template: "{%if is_state_attr('vacuum.claude', 'status', 'Stuck') %}true{%endif%}"
   action:
   - service: notify.slack
     data:

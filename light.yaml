@@ -83,7 +83,7 @@
   retain: false
  
 - platform: mqtt
-  name: "Master Bed Michael"
+  name: "Spare 1"
   command_topic: "cmnd/sonoff9/POWER"
   state_topic: "tele/sonoff9/STATE"
   state_value_template: "{{value_json.POWER}}"
@@ -112,6 +112,9 @@
   qos: 1
   retain: false
 
+# This is the new sm2135 based version of the Genio RGBW light. It requires this template:
+# {"NAME":"MiraBellaGenio","GPIO":[0,0,0,0,0,0,0,0,181,0,180,0,0],"FLAG":0,"BASE":18}
+# And you need to send a SetOption37 31 for colours to be correct.
 - platform: mqtt
   name: "Master Bed Catherine"
   command_topic: "cmnd/sonoff10/POWER"
@@ -128,6 +131,39 @@
   rgb_value_template: "{{value_json.Color.split(',')[0:3]|join(',')}}"
   effect_command_topic: "cmnd/sonoff10/Scheme"
   effect_state_topic: "tele/sonoff10/STATE"
+  effect_value_template: "{{value_json.Scheme}}"
+  effect_list:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  qos: 1
+  retain: false
+
+# This is the new sm2135 based version of the Genio RGBW light. It requires this template:
+# {"NAME":"MiraBellaGenio","GPIO":[0,0,0,0,0,0,0,0,181,0,180,0,0],"FLAG":0,"BASE":18}
+# And you need to send a SetOption37 31 for colours to be correct.
+- platform: mqtt
+  name: "Master Bed Michael"
+  command_topic: "cmnd/sonoff16/POWER"
+  state_topic: "tele/sonoff16/STATE"
+  state_value_template: "{{value_json.POWER}}"
+  availability_topic: "tele/sonoff16/LWT"
+  brightness_command_topic: "cmnd/sonoff16/Dimmer"
+  brightness_state_topic: "tele/sonoff16/STATE"
+  brightness_scale: 100
+  on_command_type: "brightness"
+  brightness_value_template: "{{value_json.Dimmer}}"
+  rgb_command_topic: "cmnd/sonoff16/Color2"
+  rgb_state_topic: "tele/sonoff16/STATE"
+  rgb_value_template: "{{value_json.Color.split(',')[0:3]|join(',')}}"
+  effect_command_topic: "cmnd/sonoff16/Scheme"
+  effect_state_topic: "tele/sonoff16/STATE"
   effect_value_template: "{{value_json.Scheme}}"
   effect_list:
     - 0
@@ -280,6 +316,6 @@
     - light.back_deck_1
     - light.back_deck_2
 
-- platform: nanoleaf
-  host: nanoleaf
-  token: !secret nanoleaf_token
+# - platform: nanoleaf
+#   host: nanoleaf
+#   token: !secret nanoleaf_token

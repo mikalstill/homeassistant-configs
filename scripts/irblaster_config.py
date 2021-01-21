@@ -4,7 +4,7 @@
 
 BLASTERS = {
     'office': {
-        'address': '192.168.1.230',
+        'address': 'officeir',
         'devices': [
             ('office_tv', 'samsung_tv'),
             ('office_bluray', 'laser_bluray'),
@@ -12,7 +12,7 @@ BLASTERS = {
         ]
     },
     'lounge': {
-        'address': '192.168.1.232',
+        'address': 'loungeir',
         'devices': [
             ('lounge_tv', 'samsung_tv'),
             ('lounge_bluray', 'laser_bluray'),
@@ -36,11 +36,11 @@ for blaster in BLASTERS:
                     out.write(
 """%(device)s_%(function)s:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: %(address)s
-        packet:
-          - '%(code)s'
+        entity_id: remote.%(address)s_remote
+        command:
+          - b64:%(code)s
 
 """ % {'device': device,
        'function': function,

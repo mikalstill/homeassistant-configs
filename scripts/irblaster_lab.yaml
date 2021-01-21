@@ -1,88 +1,88 @@
 lab_aircon_high:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBQAAABKZQUERMTExITExI4ExITExITEzcTNxM4EhMTEhM4EjgTNxMSEzgSOBMSEzcTExITExMSOBITExITOBITEzcTNxM4EgAFQwABJ0sSAA0FAAAAAAAAAAA='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBQAAABKZQUERMTExITExI4ExITExITEzcTNxM4EhMTEhM4EjgTNxMSEzgSOBMSEzcTExITExMSOBITExITOBITEzcTNxM4EgAFQwABJ0sSAA0FAAAAAAAAAAA=
 
 lab_aircon_low:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBQAAABKZMUEhQRFBITEhQ2FBITEhQRFDcTNxQ2FBEUEhQ2FDYUNhQSFDYUNhQ2FBIUERQSExIUNhQSExIUERQ2FDcTNxQ2FAAFQgABKEoTAA0FAAAAAAAAAAA='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBQAAABKZMUEhQRFBITEhQ2FBITEhQRFDcTNxQ2FBEUEhQ2FDYUNhQSFDYUNhQ2FBIUERQSExIUNhQSExIUERQ2FDcTNxQ2FAAFQgABKEoTAA0FAAAAAAAAAAA=
 
 lab_aircon_sleep:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBQAAABKpMUEhMSFBEUEhQ2FBEUEhMSFDYUNhQ3ExIUERQ2FDcUNhQRFDcTEhQ2FBITEhQRFBIUNhQRFDYUEhQ2FDYUNhQ3FAAFQQABKkkTAA0FAAAAAAAAAAA='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBQAAABKpMUEhMSFBEUEhQ2FBEUEhMSFDYUNhQ3ExIUERQ2FDcUNhQRFDcTEhQ2FBITEhQRFBIUNhQRFDYUEhQ2FDYUNhQ3FAAFQQABKkkTAA0FAAAAAAAAAAA=
 
 lab_aircon_temp_up:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBQAAABJ5USFBEUEhQRFBI4EhQRFBITEjkRORI4ExISFBI4EjgTNxI5EhMTNxMTEjgSExMTERQTEhM3ExMTNxMTEjgSOBM3EwAFQgABKkkTAA0FAAAAAAAAAAA='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBQAAABJ5USFBEUEhQRFBI4EhQRFBITEjkRORI4ExISFBI4EjgTNxI5EhMTNxMTEjgSExMTERQTEhM3ExMTNxMTEjgSOBM3EwAFQgABKkkTAA0FAAAAAAAAAAA=
 
 lab_aircon_temp_down:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBQAAABKJUSFBEUEhMSFBE5EhMSFBEUEjgSOBI5ERQSExI5ETkRORI4EhQRORE5EhMSFBEUEhQRFBI4EhMSFBI4EjgSOBI5EQAFRAABKUkTAA0FAAAAAAAAAAA='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBQAAABKJUSFBEUEhMSFBE5EhMSFBEUEjgSOBI5ERQSExI5ETkRORI4EhQRORE5EhMSFBEUEhQRFBI4EhMSFBI4EjgSOBI5EQAFRAABKUkTAA0FAAAAAAAAAAA=
 
 lab_aircon_cool:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBQAAABJ5USFBEUEhMSFBE5EhMSFBEUEjgSORE5ERQSFBE5ETkSOBIUERQSOBIUETkRFBIUERQSOBI4EhQRORITEjgSORE5EQAFRAABKEsRAA0FAAAAAAAAAAA='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBQAAABJ5USFBEUEhMSFBE5EhMSFBEUEjgSORE5ERQSFBE5ETkSOBIUERQSOBIUETkRFBIUERQSOBI4EhQRORITEjgSORE5EQAFRAABKEsRAA0FAAAAAAAAAAA=
 
 lab_aircon_dry:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBQAAABKZIVEhMTEhMTEhM4EhMTEhMTEjgTNxM3ExMSExM3EzcTOBITExMSOBI4ExITExITExITOBI4ExITExI4EjgTNxM3EgAFRAABJ0sSAA0FAAAAAAAAAAA='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBQAAABKZIVEhMTEhMTEhM4EhMTEhMTEjgTNxM3ExMSExM3EzcTOBITExMSOBI4ExITExITExITOBI4ExITExI4EjgTNxM3EgAFRAABJ0sSAA0FAAAAAAAAAAA=
 
 lab_aircon_fan:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBYAAABKZMUEhQRFBEUEhQ2FBEUEhMSFDYUNhQ3ExIUEhM3EzcUNhQSExIUNhQSExIUERQSExIUNhQ2FBIUNhQ2FDYUNxQ2FAAFQQABKkkTAAxhAAEqSBQADQU='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBYAAABKZMUEhQRFBEUEhQ2FBEUEhMSFDYUNhQ3ExIUEhM3EzcUNhQSExIUNhQSExIUERQSExIUNhQ2FBIUNhQ2FDYUNxQ2FAAFQQABKkkTAAxhAAEqSBQADQU=
 
 lab_aircon_unit_toggle:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBQAAABKJQUEhMSFBEUEhQ2FBEUEhQRFDYUNxM3FBEUEhM3FDYUNhQSFBEUNhQSFBEUERQSFBEUNhQ3FBEUNhQ2FDcUNhQ2FAAFQgABKUkUAA0FAAAAAAAAAAA='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBQAAABKJQUEhMSFBEUEhQ2FBEUEhQRFDYUNxM3FBEUEhM3FDYUNhQSFBEUNhQSFBEUERQSFBEUNhQ3FBEUNhQ2FDcUNhQ2FAAFQgABKUkUAA0FAAAAAAAAAAA=
 
 lab_aircon_power_toggle:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBYAAABKZQTEhMTEhMTEhM4EhMTEhMTEzcTNxM3ExMTEhM3EzgSOBITEhQRFBIUERQSExIUERQSOBI5EjgTNxI4EzcSORE5EgAFRAABKUkUAAxhAAEpSRQADQU='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBYAAABKZQTEhMTEhMTEhM4EhMTEhMTEzcTNxM3ExMTEhM3EzgSOBITEhQRFBIUERQSExIUERQSOBI5EjgTNxI4EzcSORE5EgAFRAABKUkUAAxhAAEpSRQADQU=
 
 lab_aircon_timer:
   sequence:
-    - service: broadlink.send
+    - service: remote.send_command
       data:
-        host: 192.168.1.231
-        packet:
-          - 'JgBQAAABKpMTEhQRFBIUERQ2FBIUERQSEzcUNhQ2FBITEhQ2FDYUNxM3FBEUEhMSFBEUEhQRFBITEhQ2FDYUNxM3FDYTNxM4EgAFQwABKUkTAA0FAAAAAAAAAAA='
+        entity_id: remote.192.168.1.231_remote
+        command:
+          - b64:JgBQAAABKpMTEhQRFBIUERQ2FBIUERQSEzcUNhQ2FBITEhQ2FDYUNxM3FBEUEhMSFBEUEhQRFBITEhQ2FDYUNxM3FDYTNxM4EgAFQwABKUkTAA0FAAAAAAAAAAA=
 

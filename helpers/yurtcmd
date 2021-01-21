@@ -1,7 +1,9 @@
 #!/usr/bin/python
 
+import datetime
 import socket
 import sys
+import time
 
 COMMANDS = {
     'software_version': 'Z',
@@ -23,12 +25,11 @@ COMMANDS = {
 
 
 def sendcommand(hostname, command):
-    print('Sending yurt command: %s to %s' %(command, hostname))
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((hostname, 2000))
     s.settimeout(1)
     s.recv(1024)
-    s.send(command)
+    s.send(command.encode('ascii'))
 
     try:
         return s.recv(1024).rstrip()
@@ -36,13 +37,27 @@ def sendcommand(hostname, command):
         return None
 
 
-hostname = sys.argv[1]
-relay = sys.argv[2]
+f = open('/srv/homeassistant/config/helpers/yurtcmd.log', 'a')
+f.write('----- %s %s -----\n' %(datetime.datetime.now(), sys.argv))
 
-if relay == 'temp':
-    print(sendcommand(hostname, COMMANDS['temperature_as_string']))
-else:
-    command = sys.argv[3]
-    sendcommand(hostname, COMMANDS['relay_%s_%s' %(relay, command)])
+for i in range(10):
+    try:
+        hostname = sys.argv[1]
+        relay = sys.argv[2]
 
-print('Yurt command done')
+        if relay == 'temp':
+            print(sendcommand(hostname, COMMANDS['temperature_as_string']))
+        else:
+            command = sys.argv[3]
+            f.write('Sending yurt command: %s to %s\n' %(COMMANDS['relay_%s_%s' %(relay, command)], hostname))
+            sendcommand(hostname, COMMANDS['relay_%s_%s' %(relay, command)])
+
+        f.write('Yurt command successful.\n')
+        break
+
+    except Exception as e:
+        f.write('%s\n' % e)
+        f.write('  ...\n')
+        time.sleep(5)
+
+f.close()

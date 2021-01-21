@@ -21,7 +21,6 @@ config:
 ffmpeg:
 
 http:
-  base_url: !secret base_url
 
 logger:
   default: info
@@ -55,11 +54,6 @@ logbook:
 # Enable sun tracking
 sun:
 
-# BOM weather forecasts
-weather:
-- platform: bom
-  station: IDN60903.94925
-
 # Text to speech
 tts:
   - platform: google_translate
@@ -87,20 +81,10 @@ script: !include_dir_merge_named scripts
 sensor: !include_dir_merge_list sensors
 binary_sensor: !include binary_sensors.yaml
 switch: !include_dir_merge_list switches
-vacuum: !include vacuum.yaml
 shell_command: !include shell_commands.yaml
 
 vera:
   vera_controller_url: !secret vera_controller
-
-media_player:
-  - platform: samsungtv
-    host: loungetv.home.stillhq.com
-    name: Lounge Display
-    mac: 5c:f6:dc:b1:a9:98
-
-  - platform: plex
-    entity_namespace: 'plex'
 
 notify:
   - name: slack
@@ -116,12 +100,17 @@ unifi:
         - !secret unifi_ssid
 
 recorder:
-  purge_interval: 1
   purge_keep_days: 7
 
 system_health:
-
 tplink:
+mobile_app:
+
+roomba:
+  - host: roomba.home.stillhq.com
+    blid: !secret roomba_username
+    password: !secret roomba_password
+
 
 # My custom components
 bom_forecast:

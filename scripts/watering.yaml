@@ -115,16 +115,3 @@ back_fence_watering:
     - service: notify.slack
       data:
         message: 'I watered the plants by the back fence for 5 minutes.'
-
-warm_weather_back_fence_watering:
-  sequence:
-    - service: switch.turn_on
-      entity_id: switch.watering_for_back_fence
-    - delay: '00:02:00'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_back_fence
-    - service: switch.turn_off
-      entity_id: switch.watering_for_back_fence
-    - service: notify.slack
-      data:
-        message: 'I watered the plants by the back fence for 2 minutes.'

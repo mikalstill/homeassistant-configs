@@ -1,14 +1,7 @@
-# Despite having these configured in DNS, I _must_ use the IP address in the
-# host field here for broadlink_send_packet in scripts to work correctly.
-- platform: broadlink
-  host: 192.168.1.231
-  mac: '78:0f:77:51:83:83'
-  timeout: 15
-
-- platform: command_line
-  switches:
-    lab5:
-      friendly_name: lab5 (Dell R410)
-      command_on: /srv/homeassistant/config/helpers/ipmi lab5-ipmi on
-      command_off: /srv/homeassistant/config/helpers/ipmi lab5-ipmi off
-      command_state: '/srv/homeassistant/config/helpers/ipmi lab5-ipmi status | grep "is on"'
+# - platform: command_line
+#   switches:
+#     lab5:
+#       friendly_name: lab5 (Dell R410)
+#       command_on: /srv/homeassistant/config/helpers/ipmi lab5-ipmi on
+#       command_off: /srv/homeassistant/config/helpers/ipmi lab5-ipmi off
+#       command_state: '/srv/homeassistant/config/helpers/ipmi lab5-ipmi status | grep "is on"'

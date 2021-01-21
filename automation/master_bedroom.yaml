@@ -1,5 +1,4 @@
 - alias: 'Start heating my towel an hour before sunrise if its cold'
-  hide_entity: false
   trigger:
     platform: sun
     event: sunrise
@@ -18,7 +17,6 @@
         message: 'It is cold today so I have warmed your towel.'
 
 - alias: 'Turn off heated towel rail'
-  hide_entity: false
   trigger:
     - platform: time
       at: '09:00:00'

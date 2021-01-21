@@ -1,5 +1,4 @@
 - alias: 'Evening indoor regardless of who is home'
-  hide_entity: false
   trigger:
     - platform: sun
       event: sunset
@@ -11,19 +10,13 @@
         brightness: 100
         rgb_color: [255, 0, 127]
     - service: light.turn_on
-      entity_id: light.hall_lamp
-      data:
-        brightness: 100
-        rgb_color: [255, 135, 135]
-    - service: light.turn_on
-      entity_id: [light.master_bed_michael, light.master_bed_catherine]
+      entity_id: [light.master_bed_michael, light.master_bed_catherine, light.hall_lamp, light.matt_lamp, light.aj_lamp]
       data:
         brightness: 100
         rgb_color: [255, 135, 135]
 
 
 - alias: 'Evening outdoor regardless of who is home'
-  hide_entity: false
   trigger:
     - platform: sun
       event: sunset

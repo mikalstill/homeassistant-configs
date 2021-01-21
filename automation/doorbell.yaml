@@ -1,5 +1,4 @@
 - alias: 'Respond to the doorbell'
-  hide_entity: true
   trigger:
     - platform: state
       entity_id: sensor.doorbell

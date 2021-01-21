@@ -1,5 +1,4 @@
 - alias: 'Gentle wake up on weekday mornings, but not on holidays'
-  hide_entity: false
   trigger:
     - platform: time
       at: '07:15:00'

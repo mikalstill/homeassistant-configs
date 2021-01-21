@@ -1,5 +1,4 @@
 - alias: 'Lab too warm'
-  hide_entity: false
   trigger:
     - platform: numeric_state
       entity_id: sensor.lab_temperature
@@ -16,7 +15,6 @@
       entity_id: script.lab_cooling_on
 
 - alias: 'Lab failed to cool'
-  hide_entity: false
   trigger:
     - platform: numeric_state
       entity_id: sensor.lab_temperature
@@ -33,7 +31,6 @@
         message: 'We are failing to keep the lab cool.'
 
 - alias: 'Lab now cool'
-  hide_entity: false
   trigger:
     - platform: numeric_state
       entity_id: sensor.lab_temperature
@@ -50,7 +47,6 @@
       entity_id: switch.sun_room_ac
 
 - alias: 'Lab cooling summary'
-  hide_entity: false
   trigger:
     - platform: time
       at: '23:55:00'
