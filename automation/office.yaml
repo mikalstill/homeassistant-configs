@@ -25,6 +25,13 @@
     - service: vacuum.turn_on
       data:
         entity_id: vacuum.claude
+    - service: light.turn_on
+      entity_id: light.office_desk
+    - service: switch.turn_off
+      entity_id: switch.office_desk_optional
+    - service: notify.slack
+      data_template:
+        message: 'I have turned the office on.'
 
 # Attempt to manage the light levels in the office, but only during reasonable
 # hours, if I am home, and if the desk lamp is on. The desk lamp is the bat

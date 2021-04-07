@@ -83,9 +83,6 @@ binary_sensor: !include binary_sensors.yaml
 switch: !include_dir_merge_list switches
 shell_command: !include shell_commands.yaml
 
-vera:
-  vera_controller_url: !secret vera_controller
-
 notify:
   - name: slack
     platform: slack
