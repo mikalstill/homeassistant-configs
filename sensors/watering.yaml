@@ -7,7 +7,7 @@
     watering_restrictions:
       friendly_name: "Watering restrictions apply"
       value_template: >-
-        {% if now().month in [9, 10, 11, 12, 1, 2, 3, 4] -%}
+        {% if now().month in [9, 10, 11, 12, 1, 2, 3] -%}
           on
         {%- else -%}
           off

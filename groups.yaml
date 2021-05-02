@@ -100,14 +100,14 @@ front_lights:
   entities:
     - light.hue_ambiance_downlight_1
     - light.hue_ambiance_downlight_2
-    # - light.front_patio
+    - light.front_lights
 
 back_lights:
   name: Back Lights
   entities:
-    - light.back_deck
     - light.back_deck_1
     - light.back_deck_2
+    - light.back_deck
 
 lounge_lights:
   name: Lounge Lights

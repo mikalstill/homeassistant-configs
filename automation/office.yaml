@@ -27,7 +27,7 @@
         entity_id: vacuum.claude
     - service: light.turn_on
       entity_id: light.office_desk
-    - service: switch.turn_off
+    - service: switch.turn_on
       entity_id: switch.office_desk_optional
     - service: notify.slack
       data_template:

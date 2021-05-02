@@ -316,6 +316,15 @@
     - light.back_deck_1
     - light.back_deck_2
 
-# - platform: nanoleaf
-#   host: nanoleaf
-#   token: !secret nanoleaf_token
+- platform: group
+  name: Lounge room
+  entities:
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_2
+    - light.hue_color_lamp_3
+
+- platform: group
+  name: Front Lights
+  entities:
+    - light.hue_ambiance_downlight_1
+    - light.hue_ambiance_downlight_2
