@@ -1,0 +1,84 @@
+# {
+#     "event_type": "zha_event",
+#     "data": {
+#         "device_ieee": "84:71:27:ff:fe:d2:a8:91",
+#         "unique_id": "84:71:27:ff:fe:d2:a8:91:1:0x0006",
+#         "device_id": "91db7e73b00f8a8a3e7fec055e19df9a",
+#         "endpoint_id": 1,
+#         "cluster_id": 6,
+#         "command": "on",
+#         "args": []
+#     },
+#     "origin": "LOCAL",
+#     "time_fired": "2021-06-19T11:07:35.381658+00:00",
+#     "context": {
+#         "id": "8b8d2320542899bd91bc3a5230c694cb",
+#         "parent_id": null,
+#         "user_id": null
+#     }
+# }
+
+- alias: Office power on
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'on'
+      device_ieee: '84:71:27:ff:fe:d2:a8:91'
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: [light.office_couch_left_2, light.office_couch_right_2]
+  - service: switch.turn_on
+    data:
+      entity_id: switch.office_desk_optional
+
+- alias: Office power on, the sun is down
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'on'
+      device_ieee: '84:71:27:ff:fe:d2:a8:91'
+  condition: "{{ state_attr('sun.sun', 'elevation') < 0 }}"
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: [light.back_deck_1, light.back_deck_2]
+
+- alias: Office power on, its cold
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'on'
+      device_ieee: '84:71:27:ff:fe:d2:a8:91'
+  condition: "{{ states('sensor.outside_temperature') | int < 10 }}"
+  action:
+    - service: script.office_aircon_heat_at_16
+
+- alias: Office power off
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'off'
+      device_ieee: '84:71:27:ff:fe:d2:a8:91'
+  condition: []
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: [light.office_couch_left_2, light.office_couch_right_2]
+  - service: script.office_aircon_power_off
+  - service: script.office_tv_power_off
+  - service: switch.turn_off
+    data:
+      entity_id: switch.office_workbench
+  - service: switch.turn_off
+    data:
+      entity_id: switch.office_desk_optional
+  - delay: '00:10:00'
+  - service: light.turn_off
+    data:
+      entity_id: [light.back_deck_1, light.back_deck_2]

@@ -1,7 +1,0 @@
-# - platform: command_line
-#   switches:
-#     lab5:
-#       friendly_name: lab5 (Dell R410)
-#       command_on: /srv/homeassistant/config/helpers/ipmi lab5-ipmi on
-#       command_off: /srv/homeassistant/config/helpers/ipmi lab5-ipmi off
-#       command_state: '/srv/homeassistant/config/helpers/ipmi lab5-ipmi status | grep "is on"'

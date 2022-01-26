@@ -55,13 +55,3 @@
     data_template:
       topic: 'currentcost/watering_for_front_door/STATE'
       payload_template: '{{states("switch.watering_for_front_door")}}'
-
-- alias: 'Publish state from IPMI switches'
-  trigger:
-  - platform: time_pattern
-    minutes: '/1'
-  action:
-  - service: mqtt.publish
-    data_template:
-      topic: 'currentcost/lab5/STATE'
-      payload_template: '{{states("switch.lab5")}}'

@@ -21,6 +21,9 @@ config:
 ffmpeg:
 
 http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.1.6
 
 logger:
   default: info
@@ -100,13 +103,15 @@ recorder:
   purge_keep_days: 7
 
 system_health:
-tplink:
 mobile_app:
 
 roomba:
   - host: roomba.home.stillhq.com
     blid: !secret roomba_username
     password: !secret roomba_password
+
+zha:
+  custom_quirks_path: /srv/homeassistant/config/custom_zha_quirks/
 
 
 # My custom components

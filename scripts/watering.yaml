@@ -1,6 +1,9 @@
 shade_garden_watering:
   sequence:
     - service: switch.turn_on
+      entity_id: switch.shade_garden_watering_on_off
+    - delay: '00:00:15'
+    - service: switch.turn_on
       entity_id: switch.watering_for_fern
     - delay: '00:05:00'
     - service: switch.turn_off
@@ -30,9 +33,14 @@ shade_garden_watering:
       entity_id: switch.watering_for_shade_garden
     - service: switch.turn_off
       entity_id: switch.watering_for_yurt
+    - service: switch.turn_off
+      entity_id: switch.shade_garden_watering_on_off
 
 warm_weather_fern_watering:
   sequence:
+    - service: switch.turn_on
+      entity_id: switch.shade_garden_watering_on_off
+    - delay: '00:00:15'
     - service: switch.turn_on
       entity_id: switch.watering_for_fern
     - delay: '00:00:30'
@@ -43,9 +51,14 @@ warm_weather_fern_watering:
     - service: notify.slack
       data:
         message: 'I briefly misted the fern because its warm.'
+    - service: switch.turn_off
+      entity_id: switch.shade_garden_watering_on_off
 
 warm_weather_shade_garden_watering:
   sequence:
+    - service: switch.turn_on
+      entity_id: switch.shade_garden_watering_on_off
+    - delay: '00:00:15'
     - service: switch.turn_on
       entity_id: switch.watering_for_fern
     - delay: '00:00:30'
@@ -76,9 +89,14 @@ warm_weather_shade_garden_watering:
       entity_id: switch.watering_for_shade_garden
     - service: switch.turn_off
       entity_id: switch.watering_for_yurt
+    - service: switch.turn_off
+      entity_id: switch.shade_garden_watering_on_off
 
 front_door_watering:
   sequence:
+    - service: switch.turn_on
+      entity_id: switch.front_watering_on_off
+    - delay: '00:00:15'
     - service: switch.turn_on
       entity_id: switch.watering_for_front_door
     - delay: '00:02:00'
@@ -89,9 +107,14 @@ front_door_watering:
     - service: notify.slack
       data:
         message: 'I watered the plants by the front door for 2 minutes.'
+    - service: switch.turn_off
+      entity_id: switch.front_watering_on_off
 
 warm_weather_front_door_watering:
   sequence:
+    - service: switch.turn_on
+      entity_id: switch.front_watering_on_off
+    - delay: '00:00:15'
     - service: switch.turn_on
       entity_id: switch.watering_for_front_door
     - delay: '00:01:00'
@@ -102,9 +125,14 @@ warm_weather_front_door_watering:
     - service: notify.slack
       data:
         message: 'I watered the plants by the front door for 1 minute.'
+    - service: switch.turn_off
+      entity_id: switch.front_watering_on_off
 
 back_fence_watering:
   sequence:
+    - service: switch.turn_on
+      entity_id: switch.back_watering_on_off
+    - delay: '00:00:15'
     - service: switch.turn_on
       entity_id: switch.watering_for_back_fence
     - delay: '00:05:00'
@@ -115,3 +143,5 @@ back_fence_watering:
     - service: notify.slack
       data:
         message: 'I watered the plants by the back fence for 5 minutes.'
+    - service: switch.turn_off
+      entity_id: switch.back_watering_on_off

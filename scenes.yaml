@@ -1,0 +1,13 @@
+- id: '1643150996275'
+  name: Master bedroom bright
+  entities:
+    group.master_lights:
+      entity_id:
+      - light.master_ceiling_1
+      - light.master_ceiling_2
+      - light.master_ceiling_3
+      - light.master_ceiling_4
+      order: 18
+      friendly_name: Master Lights
+      state: 'off'
+  icon: mdi:lightbulb
