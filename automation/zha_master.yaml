@@ -80,6 +80,92 @@
   - service: light.turn_off
     entity_id: [light.master_ceiling_1, light.master_ceiling_3, light.master_ceiling_4, light.hall_2, light.hall_3]
 
+# Tuya SC04/TS004F 4 button panel: button one and three support only short press, button two and four do a long press as well
+- alias: Master bedroom scenes, button one short, panel two
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'on'
+      device_ieee: '84:fd:27:ff:fe:84:9a:f0'
+  condition: []
+  action:
+  - service: light.turn_on
+    entity_id: [light.master_ceiling_1, light.master_ceiling_2, light.master_ceiling_3, light.master_ceiling_4]
+    data:
+      brightness: 255
+      color_temp: 308
+
+- alias: Master bedroom scenes, button two short, panel two
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'step'
+      args: [0, 51, 10]
+      device_ieee: '84:fd:27:ff:fe:84:9a:f0'
+  condition: []
+  action:
+  - service: light.turn_on
+    entity_id: [light.master_ceiling_1, light.master_ceiling_4]
+    data:
+      brightness: 255
+      rgb_color: [255, 145, 145]
+  - service: light.turn_off
+    entity_id: [light.master_ceiling_2, light.master_ceiling_3]
+
+- alias: Master bedroom scenes, button three short, panel two
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'off'
+      device_ieee: '84:fd:27:ff:fe:84:9a:f0'
+  condition: []
+  action:
+  - service: light.turn_off
+    entity_id: [light.master_ceiling_1, light.master_ceiling_2, light.master_ceiling_3, light.master_ceiling_4]
+
+- alias: Master bedroom scenes, button four short, panel two
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'step'
+      args: [1, 51, 10]
+      device_ieee: '84:fd:27:ff:fe:84:9a:f0'
+  condition: []
+  action:
+  - service: light.turn_on
+    entity_id: [light.master_ceiling_2, light.hall_1, light.hall_4]
+    data:
+      brightness: 5
+      rgb_color: [255, 0, 0]
+  - service: light.turn_off
+    entity_id: [light.master_ceiling_1, light.master_ceiling_3, light.master_ceiling_4, light.hall_2, light.hall_3]
+
+
+
+
+
+    # Button two and four short press
+    #- conditions: '{{ command == ''step'' }}'
+    #  sequence:
+    #  - choose:
+    #    - conditions: '{{ args == [ 0, 51, 10] }}'
+    #      sequence: !input 'button_three_short_press'
+    #    - conditions: '{{ args == [ 1, 51, 10 ] }}'
+    #      sequence: !input 'button_four_short_press'
+    # Button two and four long press
+    #- conditions: '{{ command == ''move'' }}'
+    #  sequence:
+    #  - choose:
+    #    - conditions: '{{ args == [ 0, 51] }}'
+    #      sequence: !input 'button_three_long_press'
+    #    - conditions: '{{ args == [ 1, 51 ] }}'
+    #      sequence: !input 'button_four_long_press'
+    #- conditions: '{{ command == ''stop'' }}'
+    #  sequence: !input 'button_dim_stop'
 
 
 
