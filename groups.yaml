@@ -98,12 +98,13 @@ all_lights:
     - group.front_lights
     - group.back_lights
     - group.lounge_lights
+    - light.lounge_nook
     - light.entrance
     - group.study_lights
     - group.hall_lights
     - light.kitchen_sink
     - group.kitchen_lights
-    - group.master_lights
+    - group.laundry_lights
 
 front_lights:
   name: Front Lights
@@ -184,6 +185,12 @@ kitchen_lights:
     - light.kitchen_4
     - light.kitchen_5
 
+laundry_lights:
+  name: Laundry Lights
+  entities:
+    - light.laundry_1
+    - light.laundry_2
+
 lounge_tv:
   name: Lounge TV
   entities:
@@ -257,6 +264,12 @@ jacqui_ceiling:
   entities:
     - light.jacqui_1
     - light.jacqui_2
+
+matt_ceiling:
+  name: Matt Lights
+  entities:
+    - light.matt_ceiling_1
+    - light.matt_ceiling_2
 
 study_lights:
   name: Study Lights
