@@ -20,7 +20,7 @@
       entity_id: light.jacqui_lamp
       data:
         brightness: 10
-        rgb_color: [33, 0, 0]
+        rgb_color: [255, 255, 255]
 
 - alias: 'Morning indoor Jacqui special case'
   trigger:

@@ -1,0 +1,10 @@
+- alias: 'Jacqui lamp red at midnight'
+  trigger:
+    - platform: time
+      at: '00:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.jacqui_lamp
+      data:
+        brightness: 10
+        rgb_color: [33, 0, 0]

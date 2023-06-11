@@ -1,0 +1,26 @@
+- alias: Default to on when returning to the network (lounge_left)
+  trigger:
+    - platform: state
+      entity_id: light.lounge_left_1
+      from: 'unavailable'
+      to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: [light.lounge_left_1, light.lounge_left_2, light.lounge_left_3]
+      data:
+        brightness: 170
+        color_temp: 430
+
+- alias: Default to on when returning to the network (jacqui_ceiling)
+  trigger:
+    - platform: state
+      entity_id: light.jacqui_ceiling_1
+      from: 'unavailable'
+      to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: [light.jacqui_ceiling_1, light.jacqui_ceiling_2]
+      data:
+        brightness: 170
+        color_temp: 430
+

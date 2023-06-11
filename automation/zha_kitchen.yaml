@@ -1,0 +1,56 @@
+# Tuya SC04/TS004F 4 button panel: button one and three support only short press, button two and four do a long press as well
+- alias: Kitchen scenes, button one short
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'on'
+      device_ieee: '60:a4:23:ff:fe:fe:8f:01'
+  condition: []
+  action:
+  - service: light.turn_on
+    entity_id: [light.kitchen_1, light.kitchen_2, light.kitchen_3, light.kitchen_4, light.kitchen_5]
+    data:
+      brightness: 255
+      color_temp: 308
+
+- alias: Kitchen scenes, button two short
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'step'
+      args: [0, 51, 10]
+      device_ieee: '60:a4:23:ff:fe:fe:8f:01'
+  condition: []
+  action:
+  - service: light.turn_on
+    entity_id: [light.kitchen_sink]
+    data:
+      brightness: 255
+      color_temp: 308
+
+- alias: Kitchen scenes, button three short
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'off'
+      device_ieee: '60:a4:23:ff:fe:fe:8f:01'
+  condition: []
+  action:
+  - service: light.turn_off
+    entity_id: [light.kitchen_1, light.kitchen_2, light.kitchen_3, light.kitchen_4, light.kitchen_5]
+
+- alias: Kitchen scenes, button four short
+  trigger:
+    platform: event
+    event_type: zha_event
+    event_data:
+      command: 'step'
+      args: [1, 51, 10]
+      device_ieee: '60:a4:23:ff:fe:fe:8f:01'
+  condition: []
+  action:
+  - service: light.turn_off
+    entity_id: [light.kitchen_sink]
