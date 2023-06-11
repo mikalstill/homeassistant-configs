@@ -68,21 +68,21 @@
 # Remember to run "SetOption17 1" and "SetOption59 1" on the web console before deployment!
 # See https://github.com/arendst/Sonoff-Tasmota/wiki/Home-Assistant-%E2%80%90-Manual-Config#rgb-lights for details.
 - platform: mqtt
-  name: "Jacqui lamp"
-  command_topic: "cmnd/sonoff12/POWER"
-  state_topic: "tele/sonoff12/STATE"
+  name: "Jacqui lamp old"
+  command_topic: "cmnd/sonoff13/POWER"
+  state_topic: "tele/sonoff13/STATE"
   state_value_template: "{{value_json.POWER}}"
-  availability_topic: "tele/sonoff12/LWT"
-  brightness_command_topic: "cmnd/sonoff12/Dimmer"
-  brightness_state_topic: "tele/sonoff12/STATE"
+  availability_topic: "tele/sonoff13/LWT"
+  brightness_command_topic: "cmnd/sonoff13/Dimmer"
+  brightness_state_topic: "tele/sonoff13/STATE"
   brightness_scale: 100
   on_command_type: "brightness"
   brightness_value_template: "{{value_json.Dimmer}}"
-  rgb_command_topic: "cmnd/sonoff12/Color2"
-  rgb_state_topic: "tele/sonoff12/STATE"
+  rgb_command_topic: "cmnd/sonoff13/Color2"
+  rgb_state_topic: "tele/sonoff13/STATE"
   rgb_value_template: "{{value_json.Color.split(',')[0:3]|join(',')}}"
-  effect_command_topic: "cmnd/sonoff12/Scheme"
-  effect_state_topic: "tele/sonoff12/STATE"
+  effect_command_topic: "cmnd/sonoff13/Scheme"
+  effect_state_topic: "tele/sonoff13/STATE"
   effect_value_template: "{{value_json.Scheme}}"
   effect_list:
     - 0
