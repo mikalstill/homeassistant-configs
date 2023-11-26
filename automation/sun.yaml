@@ -4,11 +4,8 @@
       event: sunset
       offset: "-00:30:00"
   action:
-    - service: light.turn_on
-      entity_id: [light.aj_lamp_level_light_color_on_off, light.matt_lamp_level_light_color_on_off, light.office_couch_left_2, light.office_couch_right_2, light.lounge_left_3, light.lounge_right_3, light.hall_2, light.hall_3, light.kitchen_sink, light.master_ceiling_1, light.master_ceiling_4, light.aj_ceiling, light.matt_ceiling_1, light.matt_ceiling_2, light.lounge_nook]
-      data:
-        brightness: 255
-        rgb_color: [255, 145, 145]
+    - service: script.sunset_lights
+      data: {}
 
 - alias: 'Evening indoor Jacqui special case'
   trigger:
@@ -19,7 +16,7 @@
     - service: light.turn_on
       entity_id: light.jacqui_lamp
       data:
-        brightness: 10
+        brightness: 255
         rgb_color: [255, 255, 255]
 
 - alias: 'Morning indoor Jacqui special case'
@@ -41,17 +38,6 @@
     - service: light.turn_off
       entity_id: light.jacqui_lamp
 
-- alias: 'Jacqui bed time'
-  trigger:
-    - platform: time
-      at: "19:00:00"
-  action:
-    - service: light.turn_on
-      entity_id: light.jacqui_lamp
-      data:
-        brightness: 10
-        rgb_color: [255, 0, 0]
-
 - alias: 'Evening outdoor regardless of who is home'
   trigger:
     - platform: sun
@@ -67,7 +53,7 @@
       data:
         effect: 7
 
-- alias: 'Morning outfoor regarless of who is home'
+- alias: 'Morning outfoor regardless of who is home'
   trigger:
     - platform: sun
       event: sunrise

@@ -1,17 +1,17 @@
-- alias: Download BoM Canberra forecast each evening
-  trigger:
-    platform: time
-    at: '20:12:00'
-  action:
-    service: bom_forecast.fetch
-    data:
-      forecast: 'IDN10035'
-
-- alias: Download BoM Canberra forecast on startup
-  trigger:
-    platform: homeassistant
-    event: start
-  action:
-    service: bom_forecast.fetch
-    data:
-      forecast: 'IDN10035'
+#- alias: Download BoM Canberra forecast each evening
+#  trigger:
+#    platform: time
+#    at: '20:12:00'
+#  action:
+#    service: bom_forecast.fetch
+#    data:
+#      forecast: 'IDN10035'
+#
+#- alias: Download BoM Canberra forecast on startup
+#  trigger:
+#    platform: homeassistant
+#    event: start
+#  action:
+#    service: bom_forecast.fetch
+#    data:
+#      forecast: 'IDN10035'

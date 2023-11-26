@@ -1,5 +1,6 @@
 homeassistant:
   name: 33FL
+  country: AU
   latitude: !secret latitude
   longitude: !secret longitude
   elevation: 594
@@ -27,23 +28,6 @@ http:
 
 logger:
   default: info
-  logs:
-          roomba: warning
-
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
-updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
-  # include_used_components: true
-
-# Discover some devices automatically
-discovery:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
 
 # Enables support for tracking state changes over time
 history:
@@ -70,34 +54,12 @@ cloud:
 
 owntracks:
 
-mqtt:
-  broker: !secret mqtt_broker
-  discovery: true
-  discovery_prefix: homeassistant
-
 automation: !include_dir_merge_list automation
-camera: !include cameras.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
-light: !include light.yaml
-script: !include_dir_merge_named scripts
-sensor: !include_dir_merge_list sensors
+script: !include_dir_merge_named scripts/
 binary_sensor: !include binary_sensors.yaml
-switch: !include_dir_merge_list switches
 shell_command: !include shell_commands.yaml
-
-notify:
-  - name: slack
-    platform: slack
-    api_key: !secret slack_api_key
-    default_channel: '#house'
-
-unifi:
-  controllers:
-    - host: !secret unifi_host
-      site: !secret unifi_site
-      ssid_filter:
-        - !secret unifi_ssid
 
 recorder:
   purge_keep_days: 7
@@ -105,16 +67,30 @@ recorder:
 system_health:
 mobile_app:
 
-roomba:
-  - host: roomba.home.stillhq.com
-    blid: !secret roomba_username
-    password: !secret roomba_password
-
 zha:
   custom_quirks_path: /srv/homeassistant/config/custom_zha_quirks/
 
+command_line: !include command_line.yaml
+
+mqtt:
+  - sensor: !include mqtt/sensors.yaml
+  - light: !include mqtt/lights.yaml
+
+template:
+  - sensor:
+      # Are we on the summer or winter watering schedule? Summer is defined
+      # by law in this case to be September thru May. Given how cold it is
+      # at the start of May (freezing overnight), I am going to assume they mean
+      # restrictions end at the start of May.
+      - name: Watering restrictions apply
+        state: >-
+          {% if now().month in [9, 10, 11, 12, 1, 2, 3] -%}
+            on
+          {%- else -%}
+            off
+          {%- endif %}
 
 # My custom components
-bom_forecast:
-event_history:
-holidays:
+# bom_forecast:
+# event_history:
+# holidays:

@@ -16,7 +16,7 @@
           - sun
           - wed
       - condition: state
-        entity_id: 'sensor.watering_restrictions'
+        entity_id: 'sensor.watering_restrictions_apply'
         state: 'off'
   action:
     - service: script.turn_on
@@ -34,7 +34,7 @@
           - sun
           - wed
       - condition: state
-        entity_id: 'sensor.watering_restrictions'
+        entity_id: 'sensor.watering_restrictions_apply'
         state: 'on'
   action:
     - service: script.turn_on
@@ -58,7 +58,7 @@
         entity_id: sensor.outside_temperature
         above: 25.0
       - condition: state
-        entity_id: 'sensor.watering_restrictions'
+        entity_id: 'sensor.watering_restrictions_apply'
         state: 'on'
   action:
     - service: script.turn_on
@@ -129,7 +129,7 @@
           - sun
           - wed
       - condition: state
-        entity_id: 'sensor.watering_restrictions'
+        entity_id: 'sensor.watering_restrictions_apply'
         state: 'off'
   action:
     - service: script.turn_on
@@ -147,7 +147,7 @@
           - sun
           - wed
       - condition: state
-        entity_id: 'sensor.watering_restrictions'
+        entity_id: 'sensor.watering_restrictions_apply'
         state: 'on'
   action:
     - service: script.turn_on
@@ -171,7 +171,7 @@
         entity_id: sensor.outside_temperature
         above: 25.0
       - condition: state
-        entity_id: 'sensor.watering_restrictions'
+        entity_id: 'sensor.watering_restrictions_apply'
         state: 'on'
   action:
     - service: script.turn_on
@@ -191,7 +191,7 @@
           - sun
           - wed
       - condition: state
-        entity_id: 'sensor.watering_restrictions'
+        entity_id: 'sensor.watering_restrictions_apply'
         state: 'off'
   action:
     - service: script.turn_on
@@ -205,7 +205,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: 'sensor.watering_restrictions'
+        entity_id: 'sensor.watering_restrictions_apply'
         state: 'on'
       - condition: numeric_state
         entity_id: sensor.outside_temperature
@@ -222,7 +222,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: 'sensor.watering_restrictions'
+        entity_id: 'sensor.watering_restrictions_apply'
         state: 'on'
       - condition: numeric_state
         entity_id: sensor.outside_temperature

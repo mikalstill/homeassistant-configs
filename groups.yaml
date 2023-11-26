@@ -285,7 +285,7 @@ house_sensors:
     - bom_forecast.forecast
     - sensor.outside_humidity
     - sensor.outside_temperature
-    - sensor.watering_restrictions
+    - sensor.watering_restrictions_apply
 
 house_devices:
   name: House Devices
@@ -307,3 +307,10 @@ house_watering:
     - switch.watering_for_shade_garden
     - switch.watering_for_front_door
     - switch.watering_for_back_fence
+
+deck_lights:
+  name: Deck lights
+  entities:
+    - light.pond_lights_level_light_color_on_off
+    - light.deck_lights_level_light_color_on_off
+    - light.shade_garden_level_light_color_on_off

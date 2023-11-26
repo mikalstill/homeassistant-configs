@@ -1,3 +1,0 @@
-  - platform: mqtt
-    name: "Command complete"
-    state_topic: "stat/command_complete/POWER"

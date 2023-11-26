@@ -20,6 +20,6 @@ doorbell:
         media_content_id: 'https://ha.stillhq.com/local/doorbell-chime.mp3'
         media_content_type: 'music'
 
-    - service: notify.slack
+    - service: notify.stillhq
       data:
         message: 'The doorbell just rang.'
