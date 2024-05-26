@@ -69,7 +69,7 @@
   action:
   - service: light.turn_off
     data:
-      entity_id: [light.office_couch_left_2, light.office_couch_right_2]
+      entity_id: [light.office_couch_left_2, light.office_couch_right_2, light.pond_lights_level_light_color_on_off, light.shade_garden_level_light_color_on_off, light.deck_lights_level_light_color_on_off]
   - service: script.office_aircon_power_off
   - service: script.office_tv_power_off
   - service: switch.turn_off

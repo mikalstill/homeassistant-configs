@@ -1,7 +1,7 @@
-- alias: 'Jacqui lamp red at midnight'
+- alias: 'Jacqui lamp red at 11pm'
   trigger:
     - platform: time
-      at: '00:00:00'
+      at: '23:00:00'
   action:
     - service: light.turn_on
       entity_id: light.jacqui_lamp

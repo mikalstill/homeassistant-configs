@@ -138,7 +138,7 @@
 - alias: 'Water the garden by the front door (summer)'
   trigger:
     platform: time
-    at: '19:30:00'
+    at: '7:30:00'
   condition:
     condition: and
     conditions:
@@ -164,9 +164,11 @@
         weekday:
           - mon
           - tue
+          - wed
           - thu
           - fri
           - sat
+          - sun
       - condition: numeric_state
         entity_id: sensor.outside_temperature
         above: 25.0

@@ -1,147 +1,86 @@
 shade_garden_watering:
   sequence:
-    - service: switch.turn_on
-      entity_id: switch.shade_garden_watering_on_off
-    - delay: '00:00:15'
-    - service: switch.turn_on
-      entity_id: switch.watering_for_fern
+    - service: light.turn_on
+      entity_id: light.watering_relay_shade_garden_fern
     - delay: '00:05:00'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_fern
-    - service: switch.turn_on
-      entity_id: switch.watering_for_shade_garden
+    - service: light.turn_off
+      entity_id: light.watering_relay_shade_garden_fern
     - service: notify.stillhq
       data:
         message: 'I misted the fern for 5 minutes.'
+    - service: light.turn_on
+      entity_id: light.watering_relay_shade_garden_shaded
     - delay: '00:05:00'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_shade_garden
+    - service: light.turn_off
+      entity_id: light.watering_relay_shade_garden_shaded
     - service: notify.stillhq
       data:
         message: 'I watered the shade garden for 5 minutes.'
-    - service: switch.turn_on
-      entity_id: switch.watering_for_yurt
+    - service: light.turn_on
+      entity_id: light.watering_relay_shade_garden_outdoors
     - delay: '00:05:00'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_yurt
+    - service: light.turn_off
+      entity_id: light.watering_relay_shade_garden_outdoors
     - service: notify.stillhq
       data:
         message: 'I watered the yurt garden for 5 minutes.'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_fern
-    - service: switch.turn_off
-      entity_id: switch.watering_for_shade_garden
-    - service: switch.turn_off
-      entity_id: switch.watering_for_yurt
-    - service: switch.turn_off
-      entity_id: switch.shade_garden_watering_on_off
 
 warm_weather_fern_watering:
   sequence:
-    - service: switch.turn_on
-      entity_id: switch.shade_garden_watering_on_off
-    - delay: '00:00:15'
-    - service: switch.turn_on
-      entity_id: switch.watering_for_fern
+    - service: light.turn_on
+      entity_id: light.watering_relay_shade_garden_fern
     - delay: '00:00:30'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_fern
-    - service: switch.turn_off
-      entity_id: switch.watering_for_fern
+    - service: light.turn_off
+      entity_id: light.watering_relay_shade_garden_fern
     - service: notify.stillhq
       data:
         message: 'I briefly misted the fern because its warm.'
-    - service: switch.turn_off
-      entity_id: switch.shade_garden_watering_on_off
 
 warm_weather_shade_garden_watering:
   sequence:
-    - service: switch.turn_on
-      entity_id: switch.shade_garden_watering_on_off
-    - delay: '00:00:15'
-    - service: switch.turn_on
-      entity_id: switch.watering_for_fern
+    - service: light.turn_on
+      entity_id: light.watering_relay_shade_garden_fern
     - delay: '00:00:30'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_fern
+    - service: light.turn_off
+      entity_id: light.watering_relay_shade_garden_fern
     - service: notify.stillhq
       data:
         message: 'I briefly misted the fern because its warm.'
-    - service: switch.turn_on
-      entity_id: switch.watering_for_shade_garden
+    - service: light.turn_on
+      entity_id: light.watering_relay_shade_garden_shaded
     - delay: '00:01:00'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_shade_garden
+    - service: light.turn_off
+      entity_id: light.watering_relay_shade_garden_shaded
     - service: notify.stillhq
       data:
         message: 'I watered the shade garden for 1 minute because it is warm.'
-    - service: switch.turn_on
-      entity_id: switch.watering_for_yurt
+    - service: light.turn_on
+      entity_id: light.watering_relay_shade_garden_outdoors
     - delay: '00:01:00'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_yurt
+    - service: light.turn_off
+      entity_id: light.watering_relay_shade_garden_outdoors
     - service: notify.stillhq
       data:
         message: 'I watered the yurt garden for 1 minute because it is warm.'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_fern
-    - service: switch.turn_off
-      entity_id: switch.watering_for_shade_garden
-    - service: switch.turn_off
-      entity_id: switch.watering_for_yurt
-    - service: switch.turn_off
-      entity_id: switch.shade_garden_watering_on_off
 
 front_door_watering:
   sequence:
-    - service: switch.turn_on
-      entity_id: switch.front_watering_on_off
-    - delay: '00:00:15'
-    - service: switch.turn_on
-      entity_id: switch.watering_for_front_door
-    - delay: '00:02:00'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_front_door
-    - service: switch.turn_off
-      entity_id: switch.watering_for_front_door
+    - service: light.turn_on
+      entity_id: light.watering_relay_front_patio_light
+    - delay: '00:04:00'
+    - service: light.turn_off
+      entity_id: light.watering_relay_front_patio_light
     - service: notify.stillhq
       data:
-        message: 'I watered the plants by the front door for 2 minutes.'
-    - service: switch.turn_off
-      entity_id: switch.front_watering_on_off
+        message: 'I watered the plants by the front door.'
 
 warm_weather_front_door_watering:
   sequence:
-    - service: switch.turn_on
-      entity_id: switch.front_watering_on_off
-    - delay: '00:00:15'
-    - service: switch.turn_on
-      entity_id: switch.watering_for_front_door
-    - delay: '00:01:00'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_front_door
-    - service: switch.turn_off
-      entity_id: switch.watering_for_front_door
+    - service: light.turn_on
+      entity_id: light.watering_relay_front_patio_light
+    - delay: '00:04:00'
+    - service: light.turn_off
+      entity_id: light.watering_relay_front_patio_light
     - service: notify.stillhq
       data:
-        message: 'I watered the plants by the front door for 1 minute.'
-    - service: switch.turn_off
-      entity_id: switch.front_watering_on_off
-
-back_fence_watering:
-  sequence:
-    - service: switch.turn_on
-      entity_id: switch.back_watering_on_off
-    - delay: '00:00:15'
-    - service: switch.turn_on
-      entity_id: switch.watering_for_back_fence
-    - delay: '00:05:00'
-    - service: switch.turn_off
-      entity_id: switch.watering_for_back_fence
-    - service: switch.turn_off
-      entity_id: switch.watering_for_back_fence
-    - service: notify.stillhq
-      data:
-        message: 'I watered the plants by the back fence for 5 minutes.'
-    - service: switch.turn_off
-      entity_id: switch.back_watering_on_off
+        message: 'I watered the plants by the front door some more because its warm.'

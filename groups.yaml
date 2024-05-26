@@ -80,18 +80,6 @@ office_bluray:
     - script.office_bluray_skip_back
     - script.office_bluray_skip_forward
 
-lab:
-  name: Lab Devices
-  entities:
-    - script.lab_cooling_on
-    - switch.lab5
-    - switch.sun_room_ac
-    - script.lab_aircon_cool
-    - script.lab_aircon_fan
-    - script.lab_aircon_low
-    - script.lab_aircon_high
-    - script.lab_aircon_power_toggle
-
 all_lights:
   name: All Non-Bedroom Lights
   entities:
@@ -117,6 +105,9 @@ back_lights:
   entities:
     - light.back_deck_1
     - light.back_deck_2
+    - light.pond_lights_level_light_color_on_off
+    - light.deck_lights_level_light_color_on_off
+    - light.shade_garden_level_light_color_on_off
 
 lounge_lights:
   name: Lounge Ceiling Lights
@@ -150,6 +141,17 @@ lounge_right_lights:
   entities:
     - light.lounge_right_1
     - light.lounge_right_2
+    - light.lounge_right_3
+
+lounge_reading_lights:
+  name: Lounge Reading Lights
+  entities:
+    - light.lounge_left_1
+
+lounge_morning_lights:
+  name: Lounge Morning Lights
+  entities:
+    - light.lounge_left_3
     - light.lounge_right_3
 
 lounge_pooltable_lights:
@@ -259,20 +261,25 @@ master_bedroom:
     - light.master_bed_michael
     - light.master_bed_catherine
 
+bed_one_ceiling:
+  name: AJ Lights
+  entities:
+    - light.bed_one_ceiling_1
+    - light.bed_one_ceiling_2
+
+bed_two_ceiling:
+  name: Study Lights
+  entities:
+    - light.bed_two_ceiling
+
 jacqui_ceiling:
   name: Jacqui Lights
   entities:
     - light.jacqui_1
     - light.jacqui_2
 
-matt_ceiling:
-  name: Matt Lights
-  entities:
-    - light.matt_ceiling_1
-    - light.matt_ceiling_2
-
-study_lights:
-  name: Study Lights
+matt_and_gemma_lights:
+  name: Matt and Gemma Lights
   entities:
     - light.study_1
     - light.study_2
